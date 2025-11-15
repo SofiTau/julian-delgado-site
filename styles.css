@@ -213,19 +213,27 @@ body {
 
 .single-view-inner {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1.4fr) auto;
   align-items: center;
+  justify-items: center;
   gap: 1rem;
 }
 
+/* contenedor de la imagen grande */
 .single-image-wrapper {
+  width: 100%;
+  max-width: 1000px;        /* ancho máximo en desktop */
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
+/* imagen se adapta a cada formato, sin recortar */
 .single-image-wrapper img {
   width: 100%;
+  height: auto;
+  max-height: calc(100vh - 220px);  /* ocupa casi todo el alto disponible */
+  object-fit: contain;              /* muestra la imagen completa */
   display: block;
 }
 
@@ -364,10 +372,46 @@ body {
 
 .site-footer {
   border-top: 1px solid #e0e0e0;
-  padding: 1.5rem 1rem;
-  text-align: center;
+  padding: 1.5rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 0.8rem;
   color: #777777;
+}
+
+.site-footer-text {
+  white-space: nowrap;
+}
+
+.site-footer-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* iconito de Instagram */
+.footer-instagram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid #999;
+  text-decoration: none;
+}
+
+.footer-instagram svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+.footer-instagram:hover {
+  border-color: #111;
 }
 
 /* =============== RESPONSIVE =============== */
@@ -417,5 +461,13 @@ body {
     grid-column: 2 / 3;
     justify-self: flex-start;
   }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding-inline: 1.5rem;
+  }
 }
+
 
