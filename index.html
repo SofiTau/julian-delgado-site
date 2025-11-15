@@ -4,19 +4,26 @@
   <meta charset="UTF-8" />
   <title>Julian Delgado</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" 
     rel="stylesheet"
   >
+  
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <!-- INTRO -->
+
+  <!-- INTRO OVERLAY -->
   <div class="intro-overlay" id="introOverlay">
-    <video class="intro-video" src="media/intro-video_julian-delgado.mp4" autoplay muted loop playsinline></video>
+    <video 
+      class="intro-video" 
+      src="media/intro-video_julian-delgado.mp4" 
+      autoplay muted loop playsinline></video>
+
     <button class="intro-enter" id="introEnter">
       <span class="intro-symbol">+</span>
     </button>
@@ -33,19 +40,22 @@
     </nav>
   </header>
 
+  <!-- MAIN -->
   <main class="site-main">
 
     <!-- HOME -->
     <section id="home" class="section section-active">
+
       <header class="section-header">
         <h1>Selected Works</h1>
+
         <div class="view-toggle">
           <button class="view-btn active" data-view="grid">Grid view</button>
           <button class="view-btn" data-view="single">Single view</button>
         </div>
       </header>
 
-      <!-- GRID -->
+      <!-- GRID VIEW -->
       <div class="gallery gallery-grid view-active" id="galleryGrid">
 
         <!-- WORK 1 -->
@@ -115,11 +125,14 @@
 
       <!-- SINGLE VIEW -->
       <div class="gallery gallery-single" id="gallerySingle">
+
         <div class="single-view-inner">
+
           <button class="nav-arrow nav-prev" id="singlePrev">&#10094;</button>
 
           <div class="single-image-wrapper">
             <img id="singleImage" src="images/work01.png" alt="Current Work" />
+
             <div class="single-caption">
               <h2 id="singleTitle">Project Title 01</h2>
               <p id="singleText">Description / Credits</p>
@@ -127,6 +140,7 @@
           </div>
 
           <button class="nav-arrow nav-next" id="singleNext">&#10095;</button>
+
         </div>
       </div>
 
@@ -139,50 +153,37 @@
       </header>
 
       <div class="store-list">
+
         <a href="product-1.html" class="store-row">
-          <img src="images/product1-thumb.jpg" class="store-thumb" alt="Poster 01 thumbnail" />
-          <div class="store-info">
-            <h2>Poster 01</h2>
-            <p class="store-sub">Limited edition</p>
-          </div>
+          <img src="images/product1-thumb.jpg" class="store-thumb" />
+          <div class="store-info"><h2>Poster 01</h2><p class="store-sub">Limited edition</p></div>
           <div class="store-price">$80</div>
         </a>
 
         <a href="product-2.html" class="store-row">
-          <img src="images/product2-thumb.jpg" class="store-thumb" alt="Poster 02 thumbnail" />
-          <div class="store-info">
-            <h2>Poster 02</h2>
-            <p class="store-sub">Signed</p>
-          </div>
+          <img src="images/product2-thumb.jpg" class="store-thumb" />
+          <div class="store-info"><h2>Poster 02</h2><p class="store-sub">Signed</p></div>
           <div class="store-price">$95</div>
         </a>
 
         <a href="product-3.html" class="store-row">
-          <img src="images/product3-thumb.jpg" class="store-thumb" alt="Print 01 thumbnail" />
-          <div class="store-info">
-            <h2>Print 01</h2>
-            <p class="store-sub">Gallery print</p>
-          </div>
+          <img src="images/product3-thumb.jpg" class="store-thumb" />
+          <div class="store-info"><h2>Print 01</h2><p class="store-sub">Gallery print</p></div>
           <div class="store-price">$120</div>
         </a>
 
         <a href="product-4.html" class="store-row">
-          <img src="images/product4-thumb.jpg" class="store-thumb" alt="Print 02 thumbnail" />
-          <div class="store-info">
-            <h2>Print 02</h2>
-            <p class="store-sub">Framed</p>
-          </div>
+          <img src="images/product4-thumb.jpg" class="store-thumb" />
+          <div class="store-info"><h2>Print 02</h2><p class="store-sub">Framed</p></div>
           <div class="store-price">$150</div>
         </a>
 
         <a href="product-5.html" class="store-row">
-          <img src="images/product5-thumb.jpg" class="store-thumb" alt="Zine 01 thumbnail" />
-          <div class="store-info">
-            <h2>Zine 01</h2>
-            <p class="store-sub">Small run</p>
-          </div>
+          <img src="images/product5-thumb.jpg" class="store-thumb" />
+          <div class="store-info"><h2>Zine 01</h2><p class="store-sub">Small run</p></div>
           <div class="store-price">$40</div>
         </a>
+
       </div>
     </section>
 
@@ -191,9 +192,8 @@
       <header class="section-header">
         <h1>Galleries</h1>
       </header>
-      <p class="section-text">
-        Replace this with gallery content: series, exhibitions, or curated selections.
-      </p>
+
+      <p class="section-text">Replace this with gallery content.</p>
     </section>
 
     <!-- ABOUT -->
@@ -203,44 +203,36 @@
       </header>
 
       <div class="about-page">
-        <img src="images/julian-delgado.jpg" class="about-photo" alt="Portrait of Julian Delgado" />
+        <img src="images/julian-delgado.jpg" class="about-photo" />
 
         <div class="about-col">
           <h2>Julian Delgado</h2>
-          <p>
-            Bio text here… Replace this with Julian Delgado's real biography:
-            context, practice, exhibitions, collaborations and background.
-          </p>
+          <p>Bio text here…</p>
         </div>
       </div>
-
     </section>
+
   </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="site-footer-text">
-      © 2025 Julian Delgado. All rights reserved.
-    </div>
-    <div class="site-footer-right">
-      <a
-        class="footer-instagram"
+    <div class="footer-inner">
+      <a 
         href="https://www.instagram.com/_juliandelgado/"
         target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Instagram – _juliandelgado"
+        class="footer-instagram"
       >
-        <!-- simple Instagram-style icon in SVG -->
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.5" />
-          <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.5" />
-          <circle cx="17" cy="7" r="1.1" fill="currentColor" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17" cy="7" r="1.2"></circle>
         </svg>
       </a>
+
+      <p class="footer-copy">© 2025 Julian Delgado. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
-
