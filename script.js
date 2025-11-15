@@ -1,130 +1,107 @@
-document.addEventListener("DOMContentLoaded", () => {
-  /* ---------- INTRO OVERLAY ---------- */
-  const introOverlay = document.getElementById("introOverlay");
-  const introEnter = document.getElementById("introEnter");
+/* =========================================
+   BLOQUEAR TODO HASTA QUE TERMINE EL INTRO
+========================================= */
 
-  if (introEnter && introOverlay) {
-    introEnter.addEventListener("click", () => {
-      introOverlay.classList.add("hidden");
-      const video = introOverlay.querySelector("video");
-      if (video) {
-        video.pause();
-      }
+document.body.classList.add("pre-intro");
+
+const introOverlay = document.getElementById("introOverlay");
+const introEnter = document.getElementById("introEnter");
+
+introEnter.addEventListener("click", () => {
+  introOverlay.classList.add("hidden");
+  document.body.classList.remove("pre-intro");
+});
+
+/* =========================================
+   NAV ENTRE SECCIONES
+========================================= */
+
+const navLinks = document.querySelectorAll(".nav-link");
+const sections = document.querySelectorAll(".section");
+
+navLinks.forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+
+    const target = link.getAttribute("data-section");
+
+    navLinks.forEach(n => n.classList.remove("active"));
+    link.classList.add("active");
+
+    sections.forEach(sec => {
+      if (sec.id === target) sec.classList.add("section-active");
+      else sec.classList.remove("section-active");
     });
-  }
 
-  /* ---------- NAV SECTIONS ---------- */
-  const navLinks = document.querySelectorAll(".nav-link");
-  const sections = document.querySelectorAll(".section");
-
-  navLinks.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      // solo manejar si tiene data-section (en index)
-      const sectionId = link.dataset.section;
-      if (!sectionId) return;
-
-      e.preventDefault();
-
-      // activar link
-      navLinks.forEach((l) => l.classList.remove("active"));
-      link.classList.add("active");
-
-      // mostrar sección
-      sections.forEach((sec) => {
-        if (sec.id === sectionId) {
-          sec.classList.add("section-active");
-        } else {
-          sec.classList.remove("section-active");
-        }
-      });
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+    window.scrollTo(0, 0);
   });
+});
 
-  /* ---------- GALLERY VIEW TOGGLE ---------- */
-  const viewButtons = document.querySelectorAll(".view-btn");
-  const galleryGrid = document.getElementById("galleryGrid");
-  const gallerySingle = document.getElementById("gallerySingle");
+/* =========================================
+   GRID VIEW ↔ SINGLE VIEW
+========================================= */
 
-  viewButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const view = btn.dataset.view;
-      viewButtons.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
+const gridBtn = document.querySelector('[data-view="grid"]');
+const singleBtn = document.querySelector('[data-view="single"]');
 
-      if (view === "grid") {
-        galleryGrid.classList.add("view-active");
-        gallerySingle.classList.remove("view-active");
-      } else {
-        gallerySingle.classList.add("view-active");
-        galleryGrid.classList.remove("view-active");
-      }
-    });
-  });
+const galleryGrid = document.getElementById("galleryGrid");
+const gallerySingle = document.getElementById("gallerySingle");
 
-  /* ---------- SINGLE VIEW LOGIC ---------- */
-  const workCards = document.querySelectorAll(".work-card");
-  const singleImage = document.getElementById("singleImage");
-  const singleTitle = document.getElementById("singleTitle");
-  const singleText = document.getElementById("singleText");
-  const btnPrev = document.getElementById("singlePrev");
-  const btnNext = document.getElementById("singleNext");
+const singleImage = document.getElementById("singleImage");
+const singleTitle = document.getElementById("singleTitle");
+const singleText = document.getElementById("singleText");
 
-  const works = [];
+let currentIndex = 0;
 
-  workCards.forEach((card, index) => {
-    const img = card.querySelector("img");
-    const title = card.querySelector("h2");
-    const text = card.querySelector("p");
+function activateGrid() {
+  gridBtn.classList.add("active");
+  singleBtn.classList.remove("active");
 
-    works.push({
-      src: img.getAttribute("src"),
-      title: title ? title.textContent : "",
-      text: text ? text.textContent : "",
-    });
+  galleryGrid.classList.add("view-active");
+  gallerySingle.classList.remove("view-active");
+}
 
-    // clic en imagen de grid → pasa a single view en esa foto
-    img.addEventListener("click", () => {
-      currentIndex = index;
-      updateSingleView();
+function activateSingle() {
+  singleBtn.classList.add("active");
+  gridBtn.classList.remove("active");
 
-      viewButtons.forEach((b) => b.classList.remove("active"));
-      const singleBtn = document.querySelector('.view-btn[data-view="single"]');
-      if (singleBtn) singleBtn.classList.add("active");
+  gallerySingle.classList.add("view-active");
+  galleryGrid.classList.remove("view-active");
+}
 
-      gallerySingle.classList.add("view-active");
-      galleryGrid.classList.remove("view-active");
-    });
-  });
+gridBtn.addEventListener("click", activateGrid);
+singleBtn.addEventListener("click", activateSingle);
 
-  let currentIndex = 0;
+/* Click en una imagen del GRID → pasa a SINGLE */
 
-  function updateSingleView() {
-    if (!works.length) return;
-    const item = works[currentIndex];
-    singleImage.src = item.src;
-    singleTitle.textContent = item.title;
-    singleText.textContent = item.text;
-  }
+const workCards = document.querySelectorAll(".work-card img");
 
-  if (btnPrev) {
-    btnPrev.addEventListener("click", () => {
-      if (!works.length) return;
-      currentIndex = (currentIndex - 1 + works.length) % works.length;
-      updateSingleView();
-    });
-  }
-
-  if (btnNext) {
-    btnNext.addEventListener("click", () => {
-      if (!works.length) return;
-      currentIndex = (currentIndex + 1) % works.length;
-      updateSingleView();
-    });
-  }
-
-  if (works.length) {
+workCards.forEach(img => {
+  img.addEventListener("click", () => {
+    currentIndex = Number(img.getAttribute("data-index"));
     updateSingleView();
-  }
+    activateSingle();
+  });
+});
+
+/* =========================================
+   SINGLE VIEW - NAVEGACIÓN
+========================================= */
+
+function updateSingleView() {
+  const card = workCards[currentIndex];
+
+  singleImage.src = card.src;
+  singleTitle.textContent = card.parentElement.querySelector("h2").textContent;
+  singleText.textContent = card.parentElement.querySelector("p").textContent;
+}
+
+document.getElementById("singlePrev").addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + workCards.length) % workCards.length;
+  updateSingleView();
+});
+
+document.getElementById("singleNext").addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % workCards.length;
+  updateSingleView();
 });
