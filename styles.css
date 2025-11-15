@@ -17,17 +17,26 @@ body {
   line-height: 1.5;
 }
 
-/* =============== INTRO VIDEO FULLSCREEN =============== */
+/* Mientras el intro está activo, ocultamos todo */
+body.pre-intro main,
+body.pre-intro .site-header,
+body.pre-intro .site-footer {
+  display: none;
+}
+
+/* =============== INTRO FULLSCREEN =============== */
 
 .intro-overlay {
   position: fixed;
   inset: 0;
-  background: none;              /* NO fondo blanco */
   display: flex;
+  background: none;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   z-index: 999;
+  opacity: 1;
+  visibility: visible;
 }
 
 .intro-overlay.hidden {
@@ -35,6 +44,308 @@ body {
   visibility: hidden;
   transition: opacity 0.6s ease, visibility 0.6s ease;
 }
+
+.intro-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;        /* FULLSCREEN REAL — evita flashing */
+  object-fit: cover;
+  object-position: center;
+  opacity: 1;            /* sin velos */
+}
+
+/* Botón + */
+
+.intro-enter {
+  position: relative;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 1.5rem;
+}
+
+.intro-symbol {
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #ffffff;        /* + en blanco */
+}
+
+/* =============== HEADER / NAV =============== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.logo {
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.main-nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  text-transform: lowercase;
+  font-size: 0.9rem;
+  color: #555555;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid transparent;
+}
+
+.main-nav a:hover {
+  color: #111111;
+}
+
+.main-nav a.active {
+  color: #111111;
+  border-bottom-color: #111111;
+}
+
+/* =============== LAYOUT =============== */
+
+.site-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* =============== SECCIONES =============== */
+
+.section {
+  display: none;
+  padding-bottom: 3rem;
+}
+
+.section-active {
+  display: block;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.section-header h1 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 500;
+}
+
+/* =============== VIEW TOGGLE =============== */
+
+.view-toggle {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.view-btn {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border: 1px solid #dddddd;
+  background: #ffffff;
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+}
+
+.view-btn.active {
+  border-color: #111111;
+}
+
+/* =============== GRID VIEW =============== */
+
+.gallery {
+  margin-top: 1rem;
+}
+
+.gallery-grid {
+  display: none;
+}
+
+.gallery-grid.view-active {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.work-card img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.work-card h2 {
+  font-size: 0.95rem;
+}
+
+.work-card p {
+  font-size: 0.85rem;
+  color: #555555;
+}
+
+/* =============== SINGLE VIEW =============== */
+
+.gallery-single {
+  display: none;
+}
+
+.gallery-single.view-active {
+  display: block;
+}
+
+.single-view-inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.single-image-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.single-image-wrapper img {
+  width: 100%;
+  height: auto;
+  max-height: calc(100dvh - 200px);   /* usar alto real del viewport */
+  object-fit: contain;
+}
+
+.nav-arrow {
+  border: none;
+  background: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* =============== STORE =============== */
+
+.store-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.store-row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e5e5;
+  text-decoration: none;
+  color: #111;
+}
+
+.store-thumb {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+/* =============== ABOUT =============== */
+
+.about-page {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+}
+
+.about-photo {
+  width: 100%;
+  object-fit: cover;
+}
+
+.about-col h2 {
+  letter-spacing: 0.12em;
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+/* =============== FOOTER =============== */
+
+.site-footer {
+  border-top: 1px solid #e0e0e0;
+  padding: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.site-footer-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-instagram {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.footer-instagram svg {
+  width: 14px;
+  height: 14px;
+}
+
+.footer-instagram:hover {
+  border-color: #111;
+}
+
+/* =============== RESPONSIVE =============== */
+
+@media (max-width: 900px) {
+  .about-page {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-grid.view-active {
+    grid-template-columns: 1fr;
+  }
+
+  .single-view-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .5rem;
+  }
+}
+
 
 .intro-video {
   position: absolute;
@@ -378,3 +689,4 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
