@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Julian Delgado</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Tipografía limpia similar a la de la referencia -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- PANTALLA DE APERTURA -->
+  <div class="intro-overlay" id="introOverlay">
+    <video
+      class="intro-video"
+      src="media/intro.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+    ></video>
+    <button class="intro-enter" id="introEnter">
+      <span class="intro-symbol">+</span>
+    </button>
+  </div>
+
+  <!-- HEADER PRINCIPAL -->
+  <header class="site-header">
+    <div class="logo">JULIAN DELGADO</div>
+    <nav class="main-nav">
+      <a href="#home" data-section="home" class="nav-link active">home</a>
+      <a href="#store" data-section="store" class="nav-link">store</a>
+      <a href="#galleries" data-section="galleries" class="nav-link">galleries</a>
+      <a href="#about" data-section="about" class="nav-link">about</a>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <!-- HOME -->
+    <section id="home" class="section section-active">
+      <header class="section-header">
+        <h1>Selected Works</h1>
+        <div class="view-toggle">
+          <button class="view-btn active" data-view="grid">Grid view</button>
+          <button class="view-btn" data-view="single">Single view</button>
+        </div>
+      </header>
+
+      <!-- GRID -->
+      <div class="gallery gallery-grid view-active" id="galleryGrid">
+        <!-- Reemplazá las imágenes por las tuyas -->
+        <article class="work-card">
+          <img src="images/work1.jpg" alt="Work 1" data-index="0" />
+          <h2>Project Title 01, City 2024.</h2>
+          <p>Styling Name – Client / Magazine / Brand</p>
+        </article>
+
+        <article class="work-card">
+          <img src="images/work2.jpg" alt="Work 2" data-index="1" />
+          <h2>Project Title 02, City 2023.</h2>
+          <p>Photography &amp; Direction – Production Company</p>
+        </article>
+
+        <article class="work-card">
+          <img src="images/work3.jpg" alt="Work 3" data-index="2" />
+          <h2>Project Title 03, City 2023.</h2>
+          <p>Campaign for Brand XYZ</p>
+        </article>
+
+        <article class="work-card">
+          <img src="images/work4.jpg" alt="Work 4" data-index="3" />
+          <h2>Project Title 04, City 2022.</h2>
+          <p>Editorial series – Magazine Name</p>
+        </article>
+
+        <article class="work-card">
+          <img src="images/work5.jpg" alt="Work 5" data-index="4" />
+          <h2>Project Title 05, City 2022.</h2>
+          <p>Lookbook – Brand Name</p>
+        </article>
+      </div>
+
+      <!-- SINGLE VIEW (foto por foto) -->
+      <div class="gallery gallery-single" id="gallerySingle">
+        <div class="single-view-inner">
+          <button class="nav-arrow nav-prev" id="singlePrev">&#10094;</button>
+          <div class="single-image-wrapper">
+            <img id="singleImage" src="images/work1.jpg" alt="Current work" />
+            <div class="single-caption">
+              <h2 id="singleTitle">Project Title 01, City 2024.</h2>
+              <p id="singleText">
+                Styling Name – Client / Magazine / Brand
+              </p>
+            </div>
+          </div>
+          <button class="nav-arrow nav-next" id="singleNext">&#10095;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORE (lista tipo shop.jofetto) -->
+    <section id="store" class="section">
+      <header class="section-header">
+        <h1>Store</h1>
+      </header>
+
+      <div class="store-list">
+        <!-- ITEM 1 -->
+        <a href="product-1.html" class="store-row">
+          <img src="images/product1-thumb.jpg" class="store-thumb" alt="Poster 01" />
+          <div class="store-info">
+            <h2>Poster 01</h2>
+            <p class="store-sub">Limited edition print</p>
+          </div>
+          <div class="store-price">$80</div>
+        </a>
+
+        <!-- ITEM 2 -->
+        <a href="product-2.html" class="store-row">
+          <img src="images/product2-thumb.jpg" class="store-thumb" alt="Poster 02" />
+          <div class="store-info">
+            <h2>Poster 02</h2>
+            <p class="store-sub">Signed &amp; numbered</p>
+          </div>
+          <div class="store-price">$95</div>
+        </a>
+
+        <!-- ITEM 3 -->
+        <a href="product-3.html" class="store-row">
+          <img src="images/product3-thumb.jpg" class="store-thumb" alt="Photo Print 01" />
+          <div class="store-info">
+            <h2>Photo Print 01</h2>
+            <p class="store-sub">Gallery-quality print</p>
+          </div>
+          <div class="store-price">$120</div>
+        </a>
+
+        <!-- ITEM 4 -->
+        <a href="product-4.html" class="store-row">
+          <img src="images/product4-thumb.jpg" class="store-thumb" alt="Photo Print 02" />
+          <div class="store-info">
+            <h2>Photo Print 02</h2>
+            <p class="store-sub">Framed edition</p>
+          </div>
+          <div class="store-price">$150</div>
+        </a>
+
+        <!-- ITEM 5 -->
+        <a href="product-5.html" class="store-row">
+          <img src="images/product5-thumb.jpg" class="store-thumb" alt="Zine 01" />
+          <div class="store-info">
+            <h2>Zine 01</h2>
+            <p class="store-sub">Small-run publication</p>
+          </div>
+          <div class="store-price">$40</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- GALLERIES -->
+    <section id="galleries" class="section">
+      <header class="section-header">
+        <h1>Galleries</h1>
+      </header>
+      <p class="section-text">
+        Here you can group work into series, exhibitions or curated selections.
+        Replace this text with actual gallery names, links or project descriptions.
+      </p>
+    </section>
+
+    <!-- ABOUT (estilo Jofetto) -->
+    <section id="about" class="section">
+      <header class="section-header">
+        <h1>About</h1>
+      </header>
+
+      <div class="about-page">
+        <img src="images/julian-delgado.jpg" class="about-photo" alt="Julian Delgado" />
+
+        <div class="about-col">
+          <h2>Julian Delgado</h2>
+          <p>
+            Julian Delgado is a photographer and visual artist based in Buenos Aires.
+            His work explores the relationship between everyday life, fashion and
+            staged moments, using light and color as key narrative elements.
+          </p>
+
+          <p>
+            He has collaborated with brands, publications and galleries, producing
+            both commissioned and personal projects that focus on contemporary
+            visual culture.
+          </p>
+
+          <p>
+            This text can be replaced with the real bio, exhibitions, residencies,
+            studies or artist statement.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 Julian Delgado. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
