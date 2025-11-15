@@ -1,4 +1,4 @@
-/* RESET BÁSICO */
+/* =============== RESET BÁSICO =============== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,7 +18,7 @@ body {
   line-height: 1.5;
 }
 
-/* PANTALLA DE APERTURA */
+/* =============== INTRO / OVERLAY =============== */
 
 .intro-overlay {
   position: fixed;
@@ -62,7 +62,7 @@ body {
   letter-spacing: 0.15em;
 }
 
-/* LAYOUT GENERAL */
+/* =============== HEADER / NAV =============== */
 
 .site-header {
   position: sticky;
@@ -102,13 +102,15 @@ body {
   border-bottom-color: #111111;
 }
 
+/* =============== LAYOUT PRINCIPAL =============== */
+
 .site-main {
   max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
 }
 
-/* SECCIONES */
+/* =============== SECCIONES =============== */
 
 .section {
   display: none;
@@ -138,7 +140,7 @@ body {
   max-width: 640px;
 }
 
-/* BOTONES DE VISTA (GRID / SINGLE) */
+/* =============== TOGGLE GRID / SINGLE =============== */
 
 .view-toggle {
   display: flex;
@@ -159,7 +161,7 @@ body {
   border-color: #111111;
 }
 
-/* GALERÍA GRID */
+/* =============== GALERÍA / GRID VIEW =============== */
 
 .gallery {
   margin-top: 1rem;
@@ -171,12 +173,20 @@ body {
 
 .gallery-grid.view-active {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.work-card {
+  display: flex;
+  flex-direction: column;
 }
 
 .work-card img {
   width: 100%;
+  aspect-ratio: 3 / 4;      /* proporción uniforme */
+  object-fit: cover;        /* recorta si hace falta */
   display: block;
   margin-bottom: 0.6rem;
 }
@@ -191,7 +201,7 @@ body {
   color: #555555;
 }
 
-/* GALERÍA SINGLE VIEW */
+/* =============== GALERÍA / SINGLE VIEW =============== */
 
 .gallery-single {
   display: none;
@@ -236,7 +246,7 @@ body {
   cursor: pointer;
 }
 
-/* STORE estilo Jofetto */
+/* =============== STORE =============== */
 
 .store-list {
   display: flex;
@@ -261,6 +271,7 @@ body {
   height: 80px;
   object-fit: cover;
   display: block;
+  background: #f2f2f2;
 }
 
 .store-info h2 {
@@ -280,7 +291,17 @@ body {
   letter-spacing: 0.03em;
 }
 
-/* ABOUT original (para páginas de producto) */
+/* link que usamos en las páginas de producto para "← Back to store" */
+.store-link {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  color: #111111;
+  border-bottom: 1px solid #111111;
+}
+
+/* =============== ABOUT – PRODUCT PAGES (about-layout) =============== */
 
 .about-layout {
   display: grid;
@@ -307,7 +328,7 @@ body {
   margin-bottom: 0.75rem;
 }
 
-/* ABOUT estilo Jofetto para la página principal */
+/* =============== ABOUT – PÁGINA PRINCIPAL (about-page) =============== */
 
 .about-page {
   display: grid;
@@ -339,7 +360,7 @@ body {
   line-height: 1.55;
 }
 
-/* FOOTER */
+/* =============== FOOTER =============== */
 
 .site-footer {
   border-top: 1px solid #e0e0e0;
@@ -349,10 +370,14 @@ body {
   color: #777777;
 }
 
-/* RESPONSIVE */
+/* =============== RESPONSIVE =============== */
 
 @media (max-width: 900px) {
   .about-page {
+    grid-template-columns: 1fr;
+  }
+
+  .about-layout {
     grid-template-columns: 1fr;
   }
 }
@@ -368,10 +393,6 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .about-layout {
-    grid-template-columns: 1fr;
-  }
-
   .site-header {
     flex-direction: column;
     align-items: flex-start;
@@ -381,6 +402,10 @@ body {
   .main-nav a {
     margin-left: 0;
     margin-right: 1rem;
+  }
+
+  .gallery-grid.view-active {
+    grid-template-columns: 1fr;
   }
 
   .store-row {
@@ -393,3 +418,4 @@ body {
     justify-self: flex-start;
   }
 }
+
