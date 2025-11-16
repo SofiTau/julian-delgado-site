@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <title>Julian Delgado</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet"
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
+<body class="intro-active">
   <!-- INTRO FULLSCREEN -->
   <div class="intro-overlay" id="introOverlay">
     <video
@@ -21,10 +21,11 @@
       src="media/intro-video_julian-delgado.mp4"
       autoplay
       muted
-      loop
       playsinline
+      loop
     ></video>
-    <button class="intro-enter" id="introEnter" aria-label="Enter site">
+
+    <button class="intro-enter" id="introEnter" aria-label="Entrar al sitio">
       <span class="intro-symbol">+</span>
     </button>
   </div>
@@ -51,56 +52,65 @@
         </div>
       </header>
 
-      <!-- GRID VIEW -->
+      <!-- GRID -->
       <div class="gallery gallery-grid view-active" id="galleryGrid">
+        <!-- WORK 1 -->
         <article class="work-card">
           <img src="images/work01.png" alt="Work 1" data-index="0" />
           <h2>Project Title 01</h2>
           <p>Description / Credits</p>
         </article>
 
+        <!-- WORK 2 -->
         <article class="work-card">
           <img src="images/work02.png" alt="Work 2" data-index="1" />
           <h2>Project Title 02</h2>
           <p>Description / Credits</p>
         </article>
 
+        <!-- WORK 3 -->
         <article class="work-card">
           <img src="images/work03.png" alt="Work 3" data-index="2" />
           <h2>Project Title 03</h2>
           <p>Description / Credits</p>
         </article>
 
+        <!-- WORK 4 -->
         <article class="work-card">
           <img src="images/work04.png" alt="Work 4" data-index="3" />
           <h2>Project Title 04</h2>
           <p>Description / Credits</p>
         </article>
 
+        <!-- WORK 5 -->
         <article class="work-card">
           <img src="images/work05.png" alt="Work 5" data-index="4" />
           <h2>Project Title 05</h2>
           <p>Description / Credits</p>
         </article>
 
+        <!-- WORK 6 -->
         <article class="work-card">
           <img src="images/work06.png" alt="Work 6" data-index="5" />
           <h2>Project Title 06</h2>
           <p>Description / Credits</p>
         </article>
 
+        <!-- WORK 7 -->
         <article class="work-card">
           <img src="images/work07.png" alt="Work 7" data-index="6" />
           <h2>Project Title 07</h2>
           <p>Description / Credits</p>
         </article>
 
+        <!-- WORK 8 -->
         <article class="work-card">
           <img src="images/work08.png" alt="Work 8" data-index="7" />
           <h2>Project Title 08</h2>
           <p>Description / Credits</p>
         </article>
 
+        <!-- WORK 9 -->
         <article class="work-card">
           <img src="images/work09.png" alt="Work 9" data-index="8" />
           <h2>Project Title 09</h2>
@@ -111,26 +121,26 @@
       <!-- SINGLE VIEW -->
       <div class="gallery gallery-single" id="gallerySingle">
         <div class="single-view-inner">
+          <button class="nav-arrow nav-prev" id="singlePrev" aria-label="Anterior">
+            &#10094;
+          </button>
+
           <div class="single-image-wrapper">
-            <img id="singleImage" src="images/work01.png" alt="Current work" />
+            <img id="singleImage" src="images/work01.png" alt="Obra actual" />
             <div class="single-caption">
               <h2 id="singleTitle">Project Title 01</h2>
               <p id="singleText">Description / Credits</p>
             </div>
           </div>
 
-          <!-- Flechas laterales (desktop) / abajo (mobile) -->
-          <button class="nav-arrow nav-prev" id="singlePrev" aria-label="Previous image">
-            &#10094;
-          </button>
-          <button class="nav-arrow nav-next" id="singleNext" aria-label="Next image">
+          <button class="nav-arrow nav-next" id="singleNext" aria-label="Siguiente">
             &#10095;
           </button>
         </div>
       </div>
     </section>
 
-    <!-- STORE (grilla) -->
+    <!-- STORE -->
     <section id="store" class="section">
       <header class="section-header">
         <h1>Tienda</h1>
@@ -138,40 +148,37 @@
 
       <div class="store-grid">
         <!-- Rock in Rio -->
-        <article class="store-card">
-          <a href="product-1.html" class="store-card-link">
-            <img src="images/Print 01.png" alt="Rock in Rio" class="store-image" />
-            <div class="store-card-body">
-              <h2>Rock in Rio</h2>
-              <p class="store-subtitle">Obra enmarcada, edición limitada</p>
-              <p class="store-price">$150.000</p>
-            </div>
-          </a>
-        </article>
+        <a href="product-1.html" class="store-card">
+          <div class="store-image-wrapper">
+            <img src="images/print01.png" alt="Rock in Rio" />
+          </div>
+          <div class="store-card-body">
+            <h2>Rock in Rio</h2>
+            <p>Obra enmarcada, edición limitada</p>
+          </div>
+        </a>
 
         <!-- Agronobaby -->
-        <article class="store-card">
-          <a href="product-2.html" class="store-card-link">
-            <img src="images/Print 02.png" alt="Agronobaby" class="store-image" />
-            <div class="store-card-body">
-              <h2>Agronobaby</h2>
-              <p class="store-subtitle">Obra enmarcada, edición limitada</p>
-              <p class="store-price">$150.000</p>
-            </div>
-          </a>
-        </article>
+        <a href="product-2.html" class="store-card">
+          <div class="store-image-wrapper">
+            <img src="images/print02.png" alt="Agronobaby" />
+          </div>
+          <div class="store-card-body">
+            <h2>Agronobaby</h2>
+            <p>Obra enmarcada, edición limitada</p>
+          </div>
+        </a>
 
         <!-- Plugged -->
-        <article class="store-card">
-          <a href="product-3.html" class="store-card-link">
-            <img src="images/Print 03.png" alt="Plugged" class="store-image" />
-            <div class="store-card-body">
-              <h2>Plugged</h2>
-              <p class="store-subtitle">Obra enmarcada, edición limitada</p>
-              <p class="store-price">$150.000</p>
-            </div>
-          </a>
-        </article>
+        <a href="product-3.html" class="store-card">
+          <div class="store-image-wrapper">
+            <img src="images/print03.png" alt="Plugged" />
+          </div>
+          <div class="store-card-body">
+            <h2>Plugged</h2>
+            <p>Obra enmarcada, edición limitada</p>
+          </div>
+        </a>
       </div>
     </section>
 
@@ -181,8 +188,9 @@
         <h1>Galleries</h1>
       </header>
       <p class="section-text">
-        Aquí podés agrupar obras en series, exhibiciones o proyectos específicos.
-        Reemplazá este texto con el contenido real cuando lo tengas.
+        Aquí podés agrupar series, exposiciones o proyectos específicos.
+        Reemplazá este texto por la información real de tus galerías o
+        exhibiciones.
       </p>
     </section>
 
@@ -195,8 +203,8 @@
       <div class="about-page">
         <img
           src="images/julian-delgado_profile.png"
-          alt="Julian Delgado"
           class="about-photo"
+          alt="Retrato de Julian Delgado"
         />
 
         <div class="about-col">
@@ -204,38 +212,38 @@
           <p>
             Julian Delgado es fotógrafo y artista visual radicado en Buenos Aires.
             Su trabajo explora la relación entre la vida cotidiana, la moda y las
-            escenas construidas, utilizando la luz y el color como elementos
-            centrales.
+            escenas construidas, utilizando la luz y el color como herramientas
+            narrativas principales.
           </p>
           <p>
-            Ha colaborado con marcas, publicaciones y galerías, desarrollando
-            proyectos tanto por encargo como personales, siempre enfocados en la
-            cultura visual contemporánea.
+            Sus imágenes se han desarrollado tanto en proyectos personales como en
+            encargos para marcas, publicaciones y galerías, siempre con un enfoque
+            en la cultura visual contemporánea.
           </p>
           <p>
-            Para encargos, colaboraciones o consultas sobre obra disponible:
-            <br />
-            <a href="mailto:julian@dooplerstudio.com.ar">julian@dooplerstudio.com.ar</a>
+            Este texto puede reemplazarse por tu biografía definitiva, reseñas,
+            estudios, exposiciones o statement de artista.
           </p>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="footer-inner">
-      <a
-        href="https://www.instagram.com/_juliandelgado/"
-        target="_blank"
-        rel="noopener"
-        class="footer-instagram"
-        aria-label="Instagram"
-      >
-        <span class="footer-instagram-icon"></span>
-      </a>
-      <p class="footer-copy">© 2025 Julian Delgado. All rights reserved.</p>
-    </div>
+    <a
+      href="https://www.instagram.com/_juliandelgado/"
+      class="footer-instagram"
+      target="_blank"
+      rel="noopener"
+      aria-label="Instagram de Julian Delgado"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M8 3h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8zm4 2.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zm5.25-3.75a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25z"
+        />
+      </svg>
+    </a>
+    <p class="footer-copy">© 2025 Julian Delgado. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
