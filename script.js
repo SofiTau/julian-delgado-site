@@ -1,41 +1,32 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* ========== INTRO OVERLAY ========== */
-  const body = document.body;
+  /* ---------- INTRO OVERLAY ---------- */
   const introOverlay = document.getElementById("introOverlay");
   const introEnter = document.getElementById("introEnter");
 
-  // Mientras la intro está activa, el contenido principal puede estar oculto vía CSS usando .intro-active
   if (introOverlay && introEnter) {
-    body.classList.add("intro-active");
-
     introEnter.addEventListener("click", () => {
       introOverlay.classList.add("hidden");
       const video = introOverlay.querySelector("video");
       if (video) {
         video.pause();
       }
-      body.classList.remove("intro-active");
-      body.classList.add("intro-finished");
     });
   }
 
-  /* ========== NAV SECTIONS (INDEX) ========== */
+  /* ---------- NAV SECTIONS ---------- */
   const navLinks = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll(".section");
 
   navLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       const sectionId = link.dataset.section;
-      // Si no tiene data-section (por ejemplo en páginas de producto), dejamos que navegue normal
-      if (!sectionId) return;
+      if (!sectionId) return; // en product pages no usamos data-section
 
       e.preventDefault();
 
-      // Activar link
       navLinks.forEach((l) => l.classList.remove("active"));
       link.classList.add("active");
 
-      // Mostrar sección correspondiente
       sections.forEach((sec) => {
         if (sec.id === sectionId) {
           sec.classList.add("section-active");
@@ -48,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ========== GALLERY VIEW TOGGLE (GRID / SINGLE) ========== */
+  /* ---------- VIEW TOGGLE (GRID / SINGLE) ---------- */
   const viewButtons = document.querySelectorAll(".view-btn");
   const galleryGrid = document.getElementById("galleryGrid");
   const gallerySingle = document.getElementById("gallerySingle");
@@ -71,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ========== SINGLE VIEW LOGIC (HOME) ========== */
+  /* ---------- SINGLE VIEW DATA ---------- */
   const workCards = document.querySelectorAll(".work-card");
   const singleImage = document.getElementById("singleImage");
   const singleTitle = document.getElementById("singleTitle");
@@ -81,46 +72,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const works = [];
 
-  if (workCards.length && singleImage && singleTitle && singleText) {
-    workCards.forEach((card, index) => {
-      const img = card.querySelector("img");
-      const title = card.querySelector("h2");
-      const text = card.querySelector("p");
+  workCards.forEach((card, index) => {
+    const img = card.querySelector("img");
+    const title = card.querySelector("h2");
+    const text = card.querySelector("p");
 
-      if (!img) return;
+    if (!img) return;
 
-      works.push({
-        src: img.getAttribute("src"),
-        title: title ? title.textContent : "",
-        text: text ? text.textContent : "",
-      });
-
-      // Click en imagen de la grilla → ir a single view en esa foto
-      img.addEventListener("click", () => {
-        currentIndex = index;
-        updateSingleView();
-
-        // activar botón de single
-        if (viewButtons.length && galleryGrid && gallerySingle) {
-          viewButtons.forEach((b) => b.classList.remove("active"));
-          const singleBtn = document.querySelector('.view-btn[data-view="single"]');
-          if (singleBtn) singleBtn.classList.add("active");
-
-          gallerySingle.classList.add("view-active");
-          galleryGrid.classList.remove("view-active");
-        }
-      });
+    works.push({
+      src: img.getAttribute("src"),
+      title: title ? title.textContent : "",
+      text: text ? text.textContent : "",
     });
-  }
+
+    // click en imagen del grid → abre single view en esa imagen
+    img.addEventListener("click", () => {
+      currentIndex = index;
+      updateSingleView();
+
+      // cambiar toggle a "single"
+      const singleBtn = document.querySelector('.view-btn[data-view="single"]');
+      const gridBtn = document.querySelector('.view-btn[data-view="grid"]');
+
+      if (singleBtn && gridBtn && galleryGrid && gallerySingle) {
+        gridBtn.classList.remove("active");
+        singleBtn.classList.add("active");
+        gallerySingle.classList.add("view-active");
+        galleryGrid.classList.remove("view-active");
+      }
+    });
+  });
 
   let currentIndex = 0;
 
   function updateSingleView() {
-    if (!works.length) return;
+    if (!works.length || !singleImage) return;
     const item = works[currentIndex];
     singleImage.src = item.src;
-    singleTitle.textContent = item.title;
-    singleText.textContent = item.text;
+    if (singleTitle) singleTitle.textContent = item.title;
+    if (singleText) singleText.textContent = item.text;
   }
 
   if (btnPrev) {
