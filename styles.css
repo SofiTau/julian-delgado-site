@@ -1,252 +1,155 @@
-/* ======================================== */
-/* GENERAL */
-/* ======================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  /* ---------- INTRO OVERLAY ---------- */
+  const body = document.body;
+  const introOverlay = document.getElementById("introOverlay");
+  const introEnter = document.getElementById("introEnter");
+  const introVideo = introOverlay ? introOverlay.querySelector("video") : null;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Inter", sans-serif;
-  background: #ffffff;
-  color: #111;
-  overflow-x: hidden;
-}
-
-/* ======================================== */
-/* INTRO VIDEO */
-/* ======================================== */
-
-.intro-overlay {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  z-index: 999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.intro-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.intro-enter {
-  position: absolute;
-  bottom: 8%;
-  font-size: 4rem;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-.intro-symbol {
-  font-weight: 300;
-}
-
-/* ======================================== */
-/* HEADER */
-/* ======================================== */
-
-.site-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 1.5rem 2rem;
-  background: white;
-  border-bottom: 1px solid #eee;
-  z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-.main-nav a {
-  margin-left: 1.5rem;
-  text-decoration: none;
-  color: #222;
-}
-
-.main-nav a.active {
-  font-weight: 600;
-}
-
-/* ======================================== */
-/* SECTIONS */
-/* ======================================== */
-
-.section {
-  padding: 8rem 2rem 4rem;
-}
-
-/* ======================================== */
-/* GALLERY GRID */
-/* ======================================== */
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.work-card img {
-  width: 100%;
-  height: auto;
-}
-
-.work-card h2 {
-  margin-top: 0.7rem;
-  font-size: 1.2rem;
-  color: #000;
-}
-
-.work-card p {
-  color: #555;
-}
-
-/* ======================================== */
-/* SINGLE VIEW */
-/* ======================================== */
-
-.gallery-single {
-  display: none;
-  margin-top: 2rem;
-}
-
-.single-view-inner {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
-.single-image-wrapper {
-  max-width: 100%;
-  width: 100%;
-}
-
-.single-image-wrapper img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-.nav-arrow {
-  font-size: 2.5rem;
-  background: none;
-  border: none;
-  color: #000;
-  cursor: pointer;
-}
-
-/* Mobile: flechas abajo */
-@media (max-width: 800px) {
-  .single-view-inner {
-    flex-direction: column;
+  // activamos estado de intro al cargar
+  if (introOverlay) {
+    body.classList.add("intro-active");
   }
 
-  .nav-prev,
-  .nav-next {
-    position: static;
-    order: 3;
-    margin-top: 1rem;
-  }
-}
+  function closeIntro() {
+    if (!introOverlay) return;
 
-/* ======================================== */
-/* STORE LINKS SIN AZUL NI SUBRAYADO */
-/* ======================================== */
+    introOverlay.classList.add("hidden");
+    body.classList.remove("intro-active");
 
-.store-card,
-.store-card:link,
-.store-card:visited {
-  color: #000 !important;
-  text-decoration: none !important;
-}
-
-.store-card h2,
-.store-card p {
-  color: #000;
-  text-decoration: none;
-}
-
-/* ======================================== */
-/* ABOUT */
-/* ======================================== */
-
-.about-page {
-  display: flex;
-  gap: 2rem;
-}
-
-.about-photo {
-  width: 380px;
-  object-fit: cover;
-}
-
-@media (max-width: 800px) {
-  .about-page {
-    flex-direction: column;
+    if (introVideo && !introVideo.paused) {
+      introVideo.pause();
+    }
   }
 
-  .about-photo {
-    width: 100%;
+  // click en el botón +
+  if (introEnter) {
+    introEnter.addEventListener("click", (e) => {
+      e.stopPropagation();
+      closeIntro();
+    });
   }
-}
 
-/* ======================================== */
-/* FOOTER */
-/* ======================================== */
+  // opcional: si se hace click en el fondo negro (fuera del +), también cierra
+  if (introOverlay) {
+    introOverlay.addEventListener("click", (e) => {
+      if (e.target === introOverlay) {
+        closeIntro();
+      }
+    });
+  }
 
-.site-footer {
-  padding: 1.5rem;
-  border-top: 1px solid #eee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
+  /* ---------- NAV SECTIONS ---------- */
+  const navLinks = document.querySelectorAll(".nav-link[data-section]");
+  const sections = document.querySelectorAll(".section");
 
-.footer-instagram-icon {
-  width: 22px;
-  height: 22px;
-  color: #555;
-}
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const sectionId = link.dataset.section;
+      if (!sectionId) return;
 
-.site-footer p {
-  font-size: 0.75rem;
-  color: #666;
-}
+      e.preventDefault();
 
-/* ======================================== */
-/* VIEW TOGGLE */
-/* ======================================== */
+      // activar link
+      navLinks.forEach((l) => l.classList.remove("active"));
+      link.classList.add("active");
 
-.view-toggle {
-  margin-top: 1.5rem;
-}
+      // mostrar sección correspondiente
+      sections.forEach((sec) => {
+        if (sec.id === sectionId) {
+          sec.classList.add("section-active");
+        } else {
+          sec.classList.remove("section-active");
+        }
+      });
 
-.view-btn {
-  margin-right: 1rem;
-  background: none;
-  border: 1px solid #000;
-  padding: 0.3rem 0.8rem;
-  cursor: pointer;
-}
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
 
-.view-btn.active {
-  background: #000;
-  color: #fff;
-}
+  /* ---------- GALLERY VIEW TOGGLE (GRID / SINGLE) ---------- */
+  const viewButtons = document.querySelectorAll(".view-btn");
+  const galleryGrid = document.getElementById("galleryGrid");
+  const gallerySingle = document.getElementById("gallerySingle");
+
+  viewButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const view = btn.dataset.view;
+      viewButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      if (view === "grid") {
+        galleryGrid.classList.add("view-active");
+        gallerySingle.classList.remove("view-active");
+      } else {
+        gallerySingle.classList.add("view-active");
+        galleryGrid.classList.remove("view-active");
+      }
+    });
+  });
+
+  /* ---------- SINGLE VIEW LOGIC ---------- */
+  const workCards = document.querySelectorAll(".work-card");
+  const singleImage = document.getElementById("singleImage");
+  const singleTitle = document.getElementById("singleTitle");
+  const singleText = document.getElementById("singleText");
+  const btnPrev = document.getElementById("singlePrev");
+  const btnNext = document.getElementById("singleNext");
+
+  const works = [];
+
+  workCards.forEach((card, index) => {
+    const img = card.querySelector("img");
+    const title = card.querySelector("h2");
+    const text = card.querySelector("p");
+
+    works.push({
+      src: img.getAttribute("src"),
+      title: title ? title.textContent : "",
+      text: text ? text.textContent : "",
+    });
+
+    // clic en imagen de grid → pasa a single view en esa foto
+    img.addEventListener("click", () => {
+      currentIndex = index;
+      updateSingleView();
+
+      viewButtons.forEach((b) => b.classList.remove("active"));
+      const singleBtn = document.querySelector('.view-btn[data-view="single"]');
+      if (singleBtn) singleBtn.classList.add("active");
+
+      gallerySingle.classList.add("view-active");
+      galleryGrid.classList.remove("view-active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
+
+  let currentIndex = 0;
+
+  function updateSingleView() {
+    if (!works.length) return;
+    const item = works[currentIndex];
+    if (singleImage) singleImage.src = item.src;
+    if (singleTitle) singleTitle.textContent = item.title;
+    if (singleText) singleText.textContent = item.text;
+  }
+
+  if (btnPrev) {
+    btnPrev.addEventListener("click", () => {
+      if (!works.length) return;
+      currentIndex = (currentIndex - 1 + works.length) % works.length;
+      updateSingleView();
+    });
+  }
+
+  if (btnNext) {
+    btnNext.addEventListener("click", () => {
+      if (!works.length) return;
+      currentIndex = (currentIndex + 1) % works.length;
+      updateSingleView();
+    });
+  }
+
+  if (works.length) {
+    updateSingleView();
+  }
+});
