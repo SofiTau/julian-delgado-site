@@ -1,412 +1,252 @@
-/* =============== RESET BÁSICO =============== */
+/* ======================================== */
+/* GENERAL */
+/* ======================================== */
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-html,
-body {
-  height: 100%;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  font-family: "Inter", sans-serif;
   background: #ffffff;
-  color: #111111;
-  line-height: 1.5;
+  color: #111;
+  overflow-x: hidden;
 }
 
-/* Ocultamos contenido hasta que termine la intro */
-.site-header,
-.site-main,
-.site-footer {
-  visibility: hidden;
-}
-
-body.content-visible .site-header,
-body.content-visible .site-main,
-body.content-visible .site-footer {
-  visibility: visible;
-}
-
-
-/* =============== INTRO FULLSCREEN =============== */
+/* ======================================== */
+/* INTRO VIDEO */
+/* ======================================== */
 
 .intro-overlay {
   position: fixed;
   inset: 0;
-  background: #000000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: #000;
   z-index: 999;
-}
-
-.intro-overlay.hidden {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .intro-video {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 1;
 }
 
-/* BOTÓN + */
-
 .intro-enter {
-  position: relative;
+  position: absolute;
+  bottom: 8%;
+  font-size: 4rem;
+  background: none;
   border: none;
-  background: transparent;
+  color: white;
   cursor: pointer;
-  padding: 1.5rem;
 }
 
 .intro-symbol {
-  font-size: 3rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  color: #ffffff;
+  font-weight: 300;
 }
 
-
-/* =============== HEADER / NAV =============== */
+/* ======================================== */
+/* HEADER */
+/* ======================================== */
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  background: #ffffff;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 1.25rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background: white;
+  border-bottom: 1px solid #eee;
   z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
   font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-size: 0.9rem;
+  letter-spacing: 0.5px;
 }
 
 .main-nav a {
-  margin-left: 1rem;
+  margin-left: 1.5rem;
   text-decoration: none;
-  text-transform: lowercase;
-  font-size: 0.9rem;
-  color: #555555;
-  padding-bottom: 0.2rem;
-  border-bottom: 1px solid transparent;
-}
-
-.main-nav a:hover {
-  color: #111111;
+  color: #222;
 }
 
 .main-nav a.active {
-  color: #111111;
-  border-bottom-color: #111111;
+  font-weight: 600;
 }
 
-
-/* =============== MAIN WRAPPER =============== */
-
-.site-main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
-}
-
-
-/* =============== SECCIONES =============== */
+/* ======================================== */
+/* SECTIONS */
+/* ======================================== */
 
 .section {
-  display: none;
-  padding-bottom: 3rem;
+  padding: 8rem 2rem 4rem;
 }
 
-.section-active {
-  display: block;
-}
-
-.section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-}
-
-.section-header h1 {
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-weight: 500;
-}
-
-.section-text {
-  font-size: 0.95rem;
-  max-width: 640px;
-}
-
-
-/* =============== VIEW TOGGLE (GRID ↔ SINGLE) =============== */
-
-.view-toggle {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.view-btn {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  border: 1px solid #dddddd;
-  background: #ffffff;
-  padding: 0.35rem 0.75rem;
-  cursor: pointer;
-}
-
-.view-btn.active {
-  border-color: #111111;
-}
-
-
-/* =============== GRID VIEW =============== */
-
-.gallery {
-  margin-top: 1rem;
-}
+/* ======================================== */
+/* GALLERY GRID */
+/* ======================================== */
 
 .gallery-grid {
-  display: none;
-}
-
-.gallery-grid.view-active {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-}
-
-.work-card {
-  display: flex;
-  flex-direction: column;
-}
-
-.work-card img {
-  width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  display: block;
-  margin-bottom: 0.6rem;
-}
-
-.work-card h2 {
-  font-size: 0.95rem;
-  margin-bottom: 0.15rem;
-}
-
-.work-card p {
-  font-size: 0.85rem;
-  color: #555555;
-}
-
-
-/* =============== SINGLE VIEW (desktop + mobile) =============== */
-
-.gallery-single {
-  display: none;
-}
-
-.gallery-single.view-active {
-  display: block;
-}
-
-.single-view-inner {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-areas: "prev image next";
-  align-items: center;
-  justify-items: center;
-  gap: 1rem;
-}
-
-.nav-prev {
-  grid-area: prev;
-}
-
-.nav-next {
-  grid-area: next;
-}
-
-.single-image-wrapper {
-  grid-area: image;
-  width: 100%;
-  max-width: 1000px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-/* Imagen grande que entra completa */
-.single-image-wrapper img {
-  width: 100%;
-  height: auto;
-  max-height: calc(100vh - 220px);
-  object-fit: contain;
-}
-
-.single-caption h2 {
-  font-size: 0.95rem;
-  margin-bottom: 0.15rem;
-}
-
-.single-caption p {
-  font-size: 0.85rem;
-  color: #555555;
-}
-
-.nav-arrow {
-  border: none;
-  background: transparent;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-
-/* =============== STORE =============== */
-
-.store-list {
-  display: flex;
-  flex-direction: column;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
 
-.store-row {
-  display: grid;
-  grid-template-columns: 80px 1fr auto;
-  align-items: center;
-  gap: 1.5rem;
-  text-decoration: none;
-  color: #111;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid #e5e5e5;
+.work-card img {
+  width: 100%;
+  height: auto;
 }
 
-.store-thumb {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  display: block;
+.work-card h2 {
+  margin-top: 0.7rem;
+  font-size: 1.2rem;
+  color: #000;
 }
 
+.work-card p {
+  color: #555;
+}
 
-/* =============== ABOUT PAGE =============== */
+/* ======================================== */
+/* SINGLE VIEW */
+/* ======================================== */
 
-.about-page {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 3rem;
+.gallery-single {
+  display: none;
   margin-top: 2rem;
 }
 
-.about-photo {
+.single-view-inner {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.single-image-wrapper {
+  max-width: 100%;
   width: 100%;
-  display: block;
-  object-fit: cover;
 }
 
-.about-col h2 {
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.95rem;
-  margin-bottom: 1.25rem;
-  font-weight: 500;
+.single-image-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
-.about-col p {
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-  color: #333;
-  max-width: 550px;
-  line-height: 1.55;
+.nav-arrow {
+  font-size: 2.5rem;
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
 }
 
+/* Mobile: flechas abajo */
+@media (max-width: 800px) {
+  .single-view-inner {
+    flex-direction: column;
+  }
 
-/* =============== FOOTER =============== */
-
-.site-footer {
-  border-top: 1px solid #e0e0e0;
-  padding: 2rem 1rem;
-  display: flex;
-  justify-content: center;
+  .nav-prev,
+  .nav-next {
+    position: static;
+    order: 3;
+    margin-top: 1rem;
+  }
 }
 
-.footer-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
+/* ======================================== */
+/* STORE LINKS SIN AZUL NI SUBRAYADO */
+/* ======================================== */
+
+.store-card,
+.store-card:link,
+.store-card:visited {
+  color: #000 !important;
+  text-decoration: none !important;
 }
 
-/* icono IG chiquito */
-.footer-instagram {
-  width: 26px;
-  height: 26px;
-  color: #555;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.store-card h2,
+.store-card p {
+  color: #000;
   text-decoration: none;
 }
 
-.footer-instagram svg {
+/* ======================================== */
+/* ABOUT */
+/* ======================================== */
+
+.about-page {
+  display: flex;
+  gap: 2rem;
+}
+
+.about-photo {
+  width: 380px;
+  object-fit: cover;
+}
+
+@media (max-width: 800px) {
+  .about-page {
+    flex-direction: column;
+  }
+
+  .about-photo {
+    width: 100%;
+  }
+}
+
+/* ======================================== */
+/* FOOTER */
+/* ======================================== */
+
+.site-footer {
+  padding: 1.5rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-instagram-icon {
   width: 22px;
   height: 22px;
+  color: #555;
 }
 
-.footer-instagram:hover {
-  color: #111;
-}
-
-/* copyright */
-.footer-copy {
+.site-footer p {
   font-size: 0.75rem;
-  color: #777;
-  text-align: center;
-  line-height: 1.4;
+  color: #666;
 }
 
+/* ======================================== */
+/* VIEW TOGGLE */
+/* ======================================== */
 
-/* =============== RESPONSIVE =============== */
-
-@media (max-width: 900px) {
-  .about-page {
-    grid-template-columns: 1fr;
-  }
+.view-toggle {
+  margin-top: 1.5rem;
 }
 
-@media (max-width: 768px) {
-  /* Single view mobile: flechas abajo */
-  .single-view-inner {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "image image"
-      "prev  next";
-  }
+.view-btn {
+  margin-right: 1rem;
+  background: none;
+  border: 1px solid #000;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+}
 
-  .gallery-grid.view-active {
-    grid-template-columns: 1fr;
-  }
+.view-btn.active {
+  background: #000;
+  color: #fff;
 }
