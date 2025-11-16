@@ -11,15 +11,16 @@
 </head>
 
 <body>
-  <!-- INTRO -->
+
+  <!-- INTRO VIDEO -->
   <div class="intro-overlay" id="introOverlay">
     <video
       class="intro-video"
       src="media/intro-video_julian-delgado.mp4"
       autoplay
       muted
-      playsinline
       loop
+      playsinline
     ></video>
     <button class="intro-enter" id="introEnter">
       <span class="intro-symbol">+</span>
@@ -30,10 +31,10 @@
   <header class="site-header">
     <div class="logo">JULIAN DELGADO</div>
     <nav class="main-nav">
-      <a href="#home" data-section="home" class="nav-link active">home</a>
-      <a href="#store" data-section="store" class="nav-link">store</a>
-      <a href="#galleries" data-section="galleries" class="nav-link">galleries</a>
-      <a href="#about" data-section="about" class="nav-link">about</a>
+      <a href="#home" class="nav-link active">home</a>
+      <a href="#store" class="nav-link">store</a>
+      <a href="#galleries" class="nav-link">galleries</a>
+      <a href="#about" class="nav-link">about</a>
     </nav>
   </header>
 
@@ -41,8 +42,10 @@
 
     <!-- HOME -->
     <section id="home" class="section section-active">
+
       <header class="section-header">
         <h1>Selected Works</h1>
+
         <div class="view-toggle">
           <button class="view-btn active" data-view="grid">Grid view</button>
           <button class="view-btn" data-view="single">Single view</button>
@@ -52,63 +55,54 @@
       <!-- GRID -->
       <div class="gallery gallery-grid view-active" id="galleryGrid">
 
-        <!-- WORK 1 -->
         <article class="work-card">
           <img src="images/work01.png" alt="Work 1" data-index="0" />
           <h2>Project Title 01</h2>
           <p>Description / Credits</p>
         </article>
 
-        <!-- WORK 2 -->
         <article class="work-card">
           <img src="images/work02.png" alt="Work 2" data-index="1" />
           <h2>Project Title 02</h2>
           <p>Description / Credits</p>
         </article>
 
-        <!-- WORK 3 -->
         <article class="work-card">
           <img src="images/work03.png" alt="Work 3" data-index="2" />
           <h2>Project Title 03</h2>
           <p>Description / Credits</p>
         </article>
 
-        <!-- WORK 4 -->
         <article class="work-card">
           <img src="images/work04.png" alt="Work 4" data-index="3" />
           <h2>Project Title 04</h2>
           <p>Description / Credits</p>
         </article>
 
-        <!-- WORK 5 -->
         <article class="work-card">
           <img src="images/work05.png" alt="Work 5" data-index="4" />
           <h2>Project Title 05</h2>
           <p>Description / Credits</p>
         </article>
 
-        <!-- WORK 6 -->
         <article class="work-card">
           <img src="images/work06.png" alt="Work 6" data-index="5" />
           <h2>Project Title 06</h2>
           <p>Description / Credits</p>
         </article>
 
-        <!-- WORK 7 -->
         <article class="work-card">
           <img src="images/work07.png" alt="Work 7" data-index="6" />
           <h2>Project Title 07</h2>
           <p>Description / Credits</p>
         </article>
 
-        <!-- WORK 8 -->
         <article class="work-card">
           <img src="images/work08.png" alt="Work 8" data-index="7" />
           <h2>Project Title 08</h2>
           <p>Description / Credits</p>
         </article>
 
-        <!-- WORK 9 -->
         <article class="work-card">
           <img src="images/work09.png" alt="Work 9" data-index="8" />
           <h2>Project Title 09</h2>
@@ -120,10 +114,11 @@
       <!-- SINGLE VIEW -->
       <div class="gallery gallery-single" id="gallerySingle">
         <div class="single-view-inner">
+
           <button class="nav-arrow nav-prev" id="singlePrev">&#10094;</button>
 
           <div class="single-image-wrapper">
-            <img id="singleImage" src="images/work01.png" alt="Current Work" />
+            <img id="singleImage" src="images/work01.png" alt="Obra actual" />
             <div class="single-caption">
               <h2 id="singleTitle">Project Title 01</h2>
               <p id="singleText">Description / Credits</p>
@@ -131,35 +126,33 @@
           </div>
 
           <button class="nav-arrow nav-next" id="singleNext">&#10095;</button>
+
         </div>
       </div>
 
     </section>
 
-    <!-- STORE COMO GRILLA -->
+    <!-- STORE -->
     <section id="store" class="section">
       <header class="section-header">
         <h1>Tienda</h1>
       </header>
 
-      <div class="gallery gallery-grid view-active" id="storeGrid">
+      <div class="gallery gallery-grid">
 
-        <!-- PRINT 1 -->
-        <a href="product-1.html" class="work-card">
+        <a href="product-1.html" class="work-card store-card">
           <img src="images/Print 01.png" alt="Rock in Rio" />
           <h2>Rock in Rio</h2>
           <p>Obra enmarcada, edición limitada.</p>
         </a>
 
-        <!-- PRINT 2 -->
-        <a href="product-2.html" class="work-card">
+        <a href="product-2.html" class="work-card store-card">
           <img src="images/Print 02.png" alt="Agronobaby" />
           <h2>Agronobaby</h2>
           <p>Obra enmarcada, edición limitada.</p>
         </a>
 
-        <!-- PRINT 3 -->
-        <a href="product-3.html" class="work-card">
+        <a href="product-3.html" class="work-card store-card">
           <img src="images/Print 03.png" alt="Plugged" />
           <h2>Plugged</h2>
           <p>Obra enmarcada, edición limitada.</p>
@@ -174,8 +167,7 @@
         <h1>Galleries</h1>
       </header>
       <p class="section-text">
-        Aquí podés agrupar series de obras, exposiciones o proyectos específicos.
-        Este texto es de ejemplo y se puede reemplazar por información real.
+        Aquí podés agrupar series, exposiciones o proyectos específicos.
       </p>
     </section>
 
@@ -186,27 +178,24 @@
       </header>
 
       <div class="about-page">
-        <img src="images/julian-delgado_profile.png" class="about-photo" alt="Retrato de Julian Delgado" />
+        <img src="images/julian-delgado_profile.png" class="about-photo" alt="Julian Delgado" />
 
         <div class="about-col">
           <h2>Julian Delgado</h2>
           <p>
             Julian Delgado es fotógrafo y artista visual radicado en Buenos Aires.
-            Su trabajo explora la relación entre la vida cotidiana, la moda y las escenas construidas,
-            utilizando la luz y el color como elementos narrativos centrales.
+            Su trabajo explora la relación entre la vida cotidiana, la moda y la luz,
+            combinando escenas construidas con un enfoque documental moderno.
           </p>
+
           <p>
-            Sus imágenes se desarrollan entre el ámbito editorial, la fotografía de autor y los proyectos
-            por encargo, colaborando con marcas, publicaciones y espacios culturales.
-          </p>
-          <p>
-            Para más información o consultas sobre obra y proyectos, puede escribirse a
-            <a href="mailto:julian@dooplerstudio.com.ar">julian@dooplerstudio.com.ar</a>.
+            Para consultas sobre obra, disponibilidad o proyectos, escribir a:<br>
+            <a href="mailto:julian@dooplerstudio.com.ar">julian@dooplerstudio.com.ar</a>
           </p>
         </div>
       </div>
-
     </section>
+
   </main>
 
   <!-- FOOTER -->
@@ -216,18 +205,16 @@
       class="footer-instagram"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Instagram de Julian Delgado"
     >
-      <!-- Icono simple de Instagram -->
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         class="footer-instagram-icon"
-        aria-hidden="true"
       >
         <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm0 2h10c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3zm10 1a1 1 0 100 2 1 1 0 000-2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/>
       </svg>
     </a>
+
     <p>© 2025 Julian Delgado. All rights reserved.</p>
   </footer>
 
