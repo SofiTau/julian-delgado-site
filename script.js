@@ -1,25 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* ---------- INTRO OVERLAY ---------- */
-  const body = document.body;
-  const introOverlay = document.getElementById("introOverlay");
-  const introEnter = document.getElementById("introEnter");
-
-  if (introOverlay && introEnter) {
-    introEnter.addEventListener("click", () => {
-      introOverlay.classList.add("hidden");
-      body.classList.remove("intro-active");
-      const video = introOverlay.querySelector("video");
-      if (video) {
-        video.pause();
-      }
-    });
-  }
-
-  /* ---------- NAV SECTIONS (solo index) ---------- */
+  /* ---------- NAV SECTIONS + HASH INICIAL (#home, #store, #about) ---------- */
   const navLinks = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll(".section");
 
+  // Si estamos en index.html (hay secciones)
   if (sections.length) {
+    const hash = window.location.hash.replace("#", "");
+
+    if (hash) {
+      // activar sección según el hash
+      sections.forEach((sec) => {
+        if (sec.id === hash) {
+          sec.classList.add("section-active");
+        } else {
+          sec.classList.remove("section-active");
+        }
+      });
+
+      // activar link de navegación correspondiente
+      navLinks.forEach((link) => {
+        const sectionId = link.dataset.section;
+        if (sectionId === hash) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+
+      // subir al inicio
+      window.scrollTo({ top: 0 });
+    }
+
+    // listeners de navegación (click en el menú)
     navLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
         const sectionId = link.dataset.section;
@@ -40,6 +52,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
+    });
+  }
+
+  /* ---------- INTRO OVERLAY ---------- */
+  const body = document.body;
+  const introOverlay = document.getElementById("introOverlay");
+  const introEnter = document.getElementById("introEnter");
+
+  if (introOverlay && introEnter) {
+    introEnter.addEventListener("click", () => {
+      introOverlay.classList.add("hidden");
+      body.classList.remove("intro-active");
+      const video = introOverlay.querySelector("video");
+      if (video) {
+        video.pause();
+      }
     });
   }
 
@@ -75,6 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnNext = document.getElementById("singleNext");
 
   const works = [];
+  let currentIndex = 0;
 
   workCards.forEach((card, index) => {
     const img = card.querySelector("img");
@@ -106,15 +135,12 @@ document.addEventListener("DOMContentLoaded", () => {
         galleryGrid.classList.remove("view-active");
       }
 
-      // ⭐ NUEVO: al abrir single view, subir al inicio
+      // al abrir single view, subir al inicio
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   });
 
-  let currentIndex = 0;
-
   function updateSingleView() {
-    // solo exige que haya works y que exista la imagen
     if (!works.length || !singleImage) return;
     const item = works[currentIndex];
     singleImage.src = item.src;
@@ -144,4 +170,3 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSingleView();
   }
 });
-
