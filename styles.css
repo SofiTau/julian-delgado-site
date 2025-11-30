@@ -11,7 +11,7 @@ body {
 }
 
 body {
-  font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "DM Sans", sans-serif;
   background: #ffffff;
   color: #111111;
   line-height: 1.5;
@@ -57,7 +57,7 @@ body {
 
 .intro-symbol {
   font-size: 4rem;
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: 0.2em;
   color: #ffffff;
 }
@@ -96,8 +96,8 @@ body.intro-active .site-footer {
   text-transform: lowercase;
   font-size: 0.9rem;
   font-family: "Fraunces", serif;
-  font-weight: 100;
-  font-style: italic;
+  font-weight: 400;
+  font-style: normal;
   color: #555555;
   padding-bottom: 0.2rem;
   border-bottom: 1px solid transparent;
@@ -138,12 +138,13 @@ body.intro-active .site-footer {
   margin-bottom: 1.5rem;
 }
 
+/* TITULOS DE SECCIÓN: SELECTED WORKS / STORE / ABOUT */
 .section-header h1 {
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   font-family: "Fraunces", serif;
-  font-weight: 400;  /* FRAUNCES REGULAR 400 */
+  font-weight: 400;
 }
 
 /* =============== TOGGLE GRID / SINGLE =============== */
@@ -161,15 +162,13 @@ body.intro-active .site-footer {
   background: #ffffff;
   padding: 0.35rem 0.75rem;
   cursor: pointer;
-  font-family: "DM Sans", sans-serif;
-  font-weight: 400;
 }
 
 .view-btn.active {
   border-color: #111111;
 }
 
-/* =============== GALLERY / GRID VIEW (Selected Works) =============== */
+/* =============== GALERÍA / GRID VIEW =============== */
 
 .gallery {
   margin-top: 1rem;
@@ -191,32 +190,32 @@ body.intro-active .site-footer {
   flex-direction: column;
 }
 
-/* ⭐ FOTOS COMPLETAS, RESPETANDO ASPECT RATIO ORIGINAL */
+/* ⭐ FOTOS COMPLETAS SIN RECORTE EN SELECTED WORKS */
 .work-card img {
   width: 100%;
   height: auto;
-  aspect-ratio: auto;
   object-fit: contain;
   display: block;
   margin-bottom: 0.6rem;
 }
 
+/* Títulos de fotos (si los activaras) */
 .work-card h2 {
-  font-size: 0.95rem;
-  margin-bottom: 0.15rem;
-  font-family: "DM Sans", sans-serif;
+  font-family: "Fraunces", serif;
   font-weight: 400;
+  font-size: 0.95rem;
 }
 
+/* Subtítulos */
 .work-card p {
-  font-size: 0.85rem;
-  color: #555555;
   font-family: "Fraunces", serif;
   font-weight: 100;
   font-style: italic;
+  font-size: 0.85rem;
+  color: #555555;
 }
 
-/* =============== SINGLE VIEW =============== */
+/* =============== GALERÍA / SINGLE VIEW =============== */
 
 .gallery-single {
   display: none;
@@ -250,19 +249,19 @@ body.intro-active .site-footer {
   display: block;
 }
 
+/* = SINGLE VIEW caption = */
 .single-caption h2 {
-  font-size: 0.95rem;
-  font-family: "DM Sans", sans-serif;
+  font-family: "Fraunces", serif;
   font-weight: 400;
-  margin-bottom: 0.15rem;
+  font-size: 0.95rem;
 }
 
 .single-caption p {
-  font-size: 0.85rem;
-  color: #555555;
   font-family: "Fraunces", serif;
   font-weight: 100;
   font-style: italic;
+  font-size: 0.85rem;
+  color: #555555;
 }
 
 .nav-arrow {
@@ -272,7 +271,7 @@ body.intro-active .site-footer {
   cursor: pointer;
 }
 
-/* MOBILE */
+/* MOBILE ARROWS */
 @media (max-width: 768px) {
   .single-view-inner {
     grid-template-columns: 1fr 1fr;
@@ -297,7 +296,7 @@ body.intro-active .site-footer {
   }
 }
 
-/* =============== STORE – GRID CUADRADO 1:1 =============== */
+/* =============== STORE – CUADRADOS 1:1 =============== */
 
 .store-grid {
   display: grid;
@@ -307,8 +306,6 @@ body.intro-active .site-footer {
 }
 
 .store-card {
-  display: flex;
-  flex-direction: column;
   text-decoration: none;
   color: inherit;
 }
@@ -325,25 +322,24 @@ body.intro-active .site-footer {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 .store-card-body h2 {
-  font-size: 0.95rem;
-  font-family: "DM Sans", sans-serif;
+  font-family: "Fraunces", serif;
   font-weight: 400;
+  font-size: 0.95rem;
   color: #111111;
 }
 
 .store-card-body p {
-  font-size: 0.85rem;
-  color: #555555;
   font-family: "Fraunces", serif;
   font-weight: 100;
   font-style: italic;
+  font-size: 0.85rem;
+  color: #555555;
 }
 
-/* =============== PRODUCT PAGES =============== */
+/* =============== PRODUCT PAGES (about-layout) =============== */
 
 .about-layout {
   display: grid;
@@ -357,25 +353,23 @@ body.intro-active .site-footer {
   display: block;
 }
 
+/* Título dentro de un PRODUCTO */
 .about-text h2 {
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
   font-family: "Fraunces", serif;
-  font-weight: 100;
-  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.15em;
   margin-bottom: 0.75rem;
 }
 
 .about-text p {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
   font-size: 0.9rem;
   color: #333333;
   margin-bottom: 0.75rem;
-  font-family: "DM Sans", sans-serif;
-  font-weight: 400;
 }
 
-/* volver a la tienda */
+/* “Volver a la tienda” */
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -384,13 +378,6 @@ body.intro-active .site-footer {
   font-size: 0.85rem;
   color: #888888;
   text-decoration: none;
-  font-family: "DM Sans", sans-serif;
-  font-weight: 100;
-}
-
-.back-link svg {
-  width: 14px;
-  height: 14px;
 }
 
 /* =============== ABOUT PAGE PRINCIPAL =============== */
@@ -405,21 +392,20 @@ body.intro-active .site-footer {
 
 .about-photo {
   width: 100%;
-  display: block;
   object-fit: cover;
 }
 
-/* Título ABOUT → DM Sans 400 */
+/* ⭐ Título “Julian Delgado” del ABOUT */
 .about-col h2 {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.95rem;
   margin-bottom: 1.25rem;
-  font-family: "DM Sans", sans-serif;
+  font-family: "Fraunces", serif;
   font-weight: 400;
 }
 
-/* ⭐ PÁRRAFO ABOUT → DM Sans ExtraLight 200 */
+/* ⭐ Párrafo del ABOUT: DM Sans 200 */
 .about-col p {
   margin-bottom: 1rem;
   font-size: 0.95rem;
@@ -428,7 +414,6 @@ body.intro-active .site-footer {
   line-height: 1.55;
   font-family: "DM Sans", sans-serif;
   font-weight: 200;
-  font-style: normal;
 }
 
 /* =============== FOOTER =============== */
@@ -439,7 +424,6 @@ body.intro-active .site-footer {
   text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 0.4rem;
 }
 
@@ -449,11 +433,12 @@ body.intro-active .site-footer {
   fill: #111111;
 }
 
+/* Footer texto → DM Sans 100 */
 .footer-copy {
-  font-size: 0.8rem;
-  color: #777777;
   font-family: "DM Sans", sans-serif;
   font-weight: 100;
+  font-size: 0.8rem;
+  color: #777777;
 }
 
 /* =============== RESPONSIVE =============== */
@@ -479,11 +464,6 @@ body.intro-active .site-footer {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.75rem;
-  }
-
-  .main-nav a {
-    margin-left: 0;
-    margin-right: 1rem;
   }
 
   .store-grid {
