@@ -1,237 +1,171 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Julian Delgado</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Julián – Fotografía</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+        body {
+            margin: 0;
+            background: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* --- SINGLE VIEW --- */
+        #single-view {
+            width: 100%;
+            height: calc(100vh - 120px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #single-view img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        /* --- GRID VIEW --- */
+        #grid-view {
+            display: none; /* oculto por defecto */
+            padding: 20px;
+            column-count: 3;
+            column-gap: 15px;
+        }
+
+        #grid-view img {
+            width: 100%;
+            margin-bottom: 15px;
+            break-inside: avoid;
+            cursor: pointer;
+        }
+
+        /* --- BOTONES --- */
+        .view-buttons {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        button {
+            background: #333;
+            border: none;
+            padding: 10px 15px;
+            color: #fff;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        button:hover {
+            background: #555;
+        }
+
+        /* --- BIO --- */
+        .bio {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 20px;
+            text-align: center;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+    </style>
 </head>
 
-<body class="intro-active">
-  <!-- INTRO FULLSCREEN -->
-  <div class="intro-overlay" id="introOverlay">
-    <video
-      class="intro-video"
-      src="media/intro-video_julian-delgado.mp4"
-      autoplay
-      muted
-      playsinline
-      loop
-    ></video>
+<body>
 
-    <button class="intro-enter" id="introEnter" aria-label="Entrar al sitio">
-      <span class="intro-symbol">+</span>
-    </button>
-  </div>
+<header>
+    <h1>Julián</h1>
+</header>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="logo">JULIAN DELGADO</div>
-    <nav class="main-nav">
-      <a href="#home" data-section="home" class="nav-link active">home</a>
-      <a href="#store" data-section="store" class="nav-link">store</a>
-      <a href="#about" data-section="about" class="nav-link">about</a>
-    </nav>
-  </header>
+<div class="view-buttons">
+    <button onclick="showSingle()">Single View</button>
+    <button onclick="showGrid()">Grid View</button>
+</div>
 
-  <main class="site-main">
-    <!-- HOME -->
-    <section id="home" class="section section-active">
-      <header class="section-header">
-        <h1>Selected Works</h1>
-        <div class="view-toggle">
-          <button class="view-btn" data-view="grid">Grid view</button>
-          <button class="view-btn active" data-view="single">Single view</button>
-        </div>
-      </header>
+<!-- SINGLE VIEW ACTIVO INICIAL -->
+<div id="single-view">
+    <img id="single-img" src="images/000017830017.jpg" alt="foto" />
+</div>
 
-      <!-- GRID -->
-      <div class="gallery gallery-grid" id="galleryGrid">
-        <!-- WORK 1 -->
-        <article class="work-card">
-          <img src="images/work01.png" alt="Work 1" data-index="0" />
-          <h2>Project Title 01</h2>
-          <p>Description / Credits</p>
-        </article>
+<!-- GRID CON TODAS LAS FOTOS REALES -->
+<div id="grid-view">
+    <img src="images/000017830017.jpg" onclick="openSingle('images/000017830017.jpg')" />
+    <img src="images/032603.jpg" onclick="openSingle('images/032603.jpg')" />
+    <img src="images/085402.jpg" onclick="openSingle('images/085402.jpg')" />
+    <img src="images/085503.jpg" onclick="openSingle('images/085503.jpg')" />
+    <img src="images/60226.jpg" onclick="openSingle('images/60226.jpg')" />
+    <img src="images/60329.jpg" onclick="openSingle('images/60329.jpg')" />
+    <img src="images/70949.jpg" onclick="openSingle('images/70949.jpg')" />
+    <img src="images/822412.jpg" onclick="openSingle('images/822412.jpg')" />
+    <img src="images/AGUSTINA-POR-JULIAN-DELGADO-01.jpg" onclick="openSingle('images/AGUSTINA-POR-JULIAN-DELGADO-01.jpg')" />
+    <img src="images/CELEBRACION.jpg" onclick="openSingle('images/CELEBRACION.jpg')" />
+    <img src="images/DARIA-POR-JULIAN-DELGADO7.jpg" onclick="openSingle('images/DARIA-POR-JULIAN-DELGADO7.jpg')" />
+    <img src="images/DARIA-POR-JULIAN-DELGADO8.jpg" onclick="openSingle('images/DARIA-POR-JULIAN-DELGADO8.jpg')" />
+    <img src="images/DOUGLAS-POR-JULIAN-DELGADO-01.jpg" onclick="openSingle('images/DOUGLAS-POR-JULIAN-DELGADO-01.jpg')" />
+    <img src="images/FERMIN-ULTIMO-ADIOS-01.jpg" onclick="openSingle('images/FERMIN-ULTIMO-ADIOS-01.jpg')" />
+    <img src="images/IÑAKI_ARAMBURU_POR_JULIANDELGADO.06.jpg" onclick="openSingle('images/IÑAKI_ARAMBURU_POR_JULIANDELGADO.06.jpg')" />
+    <img src="images/JUANMA-JULIAN-DELGADO-06.jpg" onclick="openSingle('images/JUANMA-JULIAN-DELGADO-06.jpg')" />
+    <img src="images/JUANMA.jpg" onclick="openSingle('images/JUANMA.jpg')" />
+    <img src="images/MARTINO-POR-JULIAN-DELGADO.jpg" onclick="openSingle('images/MARTINO-POR-JULIAN-DELGADO.jpg')" />
+    <img src="images/MATEO_POR_JULIAN_DELGADO 2.jpg" onclick="openSingle('images/MATEO_POR_JULIAN_DELGADO 2.jpg')" />
+    <img src="images/MATO-POR-JULIAN-DELGADO-01.jpg" onclick="openSingle('images/MATO-POR-JULIAN-DELGADO-01.jpg')" />
+    <img src="images/MATO-POR-JULIAN-DELGADO-02.jpg" onclick="openSingle('images/MATO-POR-JULIAN-DELGADO-02.jpg')" />
+    <img src="images/MILY-DOLLY-POR-JULIAN-DELGADO-04.jpg" onclick="openSingle('images/MILY-DOLLY-POR-JULIAN-DELGADO-04.jpg')" />
+    <img src="images/Marcos.por.julian.delgado.01.jpg" onclick="openSingle('images/Marcos.por.julian.delgado.01.jpg')" />
+    <img src="images/Marcos.por.julian.delgado.15.jpg" onclick="openSingle('images/Marcos.por.julian.delgado.15.jpg')" />
+    <img src="images/NIÑO.FAVELA.01.jpg" onclick="openSingle('images/NIÑO.FAVELA.01.jpg')" />
+    <img src="images/PAULA-POSSE-BY-JULIAN-DELGADO-2.jpg" onclick="openSingle('images/PAULA-POSSE-BY-JULIAN-DELGADO-2.jpg')" />
+    <img src="images/SAM_9075.jpg" onclick="openSingle('images/SAM_9075.jpg')" />
+    <img src="images/TA70-POR-JULIAN-DELGADO-011.jpg" onclick="openSingle('images/TA70-POR-JULIAN-DELGADO-011.jpg')" />
+    <img src="images/TA70-POR-JULIAN-DELGADO-02.jpg" onclick="openSingle('images/TA70-POR-JULIAN-DELGADO-02.jpg')" />
+    <img src="images/eleonora,by,juliann.delgado13jpg.jpg" onclick="openSingle('images/eleonora,by,juliann.delgado13jpg.jpg')" />
+    <img src="images/eleonora,by,juliann.delgado20jpg 2.jpg" onclick="openSingle('images/eleonora,by,juliann.delgado20jpg 2.jpg')" />
+</div>
 
-        <!-- WORK 2 -->
-        <article class="work-card">
-          <img src="images/work02.png" alt="Work 2" data-index="1" />
-          <h2>Project Title 02</h2>
-          <p>Description / Credits</p>
-        </article>
+<!-- BIO -->
+<div class="bio">
+    Como fotógrafo y artista visual, me dedico a retratar la vida diaria explorando la sensualidad
+    y el erotismo en lo cotidiano. Crecí en Remedios de Escalada, donde la fotografía se transformó
+    en mi medio para reinterpretar experiencias.
+</div>
 
-        <!-- WORK 3 -->
-        <article class="work-card">
-          <img src="images/work03.png" alt="Work 3" data-index="2" />
-          <h2>Project Title 03</h2>
-          <p>Description / Credits</p>
-        </article>
+<script>
+    const singleView = document.getElementById("single-view");
+    const gridView = document.getElementById("grid-view");
+    const singleImg = document.getElementById("single-img");
 
-        <!-- WORK 4 -->
-        <article class="work-card">
-          <img src="images/work04.png" alt="Work 4" data-index="3" />
-          <h2>Project Title 04</h2>
-          <p>Description / Credits</p>
-        </article>
+    function showSingle() {
+        singleView.style.display = "flex";
+        gridView.style.display = "none";
+    }
 
-        <!-- WORK 5 -->
-        <article class="work-card">
-          <img src="images/work05.png" alt="Work 5" data-index="4" />
-          <h2>Project Title 05</h2>
-          <p>Description / Credits</p>
-        </article>
+    function showGrid() {
+        singleView.style.display = "none";
+        gridView.style.display = "block";
+    }
 
-        <!-- WORK 6 -->
-        <article class="work-card">
-          <img src="images/work06.png" alt="Work 6" data-index="5" />
-          <h2>Project Title 06</h2>
-          <p>Description / Credits</p>
-        </article>
+    function openSingle(src) {
+        singleImg.src = src;
+        showSingle();
+        window.scrollTo(0, 0);
+    }
+</script>
 
-        <!-- WORK 7 -->
-        <article class="work-card">
-          <img src="images/work07.png" alt="Work 7" data-index="6" />
-          <h2>Project Title 07</h2>
-          <p>Description / Credits</p>
-        </article>
-
-        <!-- WORK 8 -->
-        <article class="work-card">
-          <img src="images/work08.png" alt="Work 8" data-index="7" />
-          <h2>Project Title 08</h2>
-          <p>Description / Credits</p>
-        </article>
-
-        <!-- WORK 9 -->
-        <article class="work-card">
-          <img src="images/work09.png" alt="Work 9" data-index="8" />
-          <h2>Project Title 09</h2>
-          <p>Description / Credits</p>
-        </article>
-      </div>
-
-      <!-- SINGLE VIEW -->
-      <div class="gallery gallery-single view-active" id="gallerySingle">
-        <div class="single-view-inner">
-          <button class="nav-arrow nav-prev" id="singlePrev" aria-label="Anterior">
-            &#10094;
-          </button>
-
-          <div class="single-image-wrapper">
-            <img id="singleImage" src="images/work01.png" alt="Obra actual" />
-            <div class="single-caption">
-              <h2 id="singleTitle">Project Title 01</h2>
-              <p id="singleText">Description / Credits</p>
-            </div>
-          </div>
-
-          <button class="nav-arrow nav-next" id="singleNext" aria-label="Siguiente">
-            &#10095;
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- STORE -->
-    <section id="store" class="section">
-      <header class="section-header">
-        <h1>Tienda</h1>
-      </header>
-
-      <div class="store-grid">
-        <!-- Rock in Rio -->
-        <a href="product-1.html" class="store-card">
-          <div class="store-image-wrapper">
-            <img src="images/Print01.png" alt="Rock in Rio" />
-          </div>
-          <div class="store-card-body">
-            <h2>Rock in Rio</h2>
-            <p>Obra enmarcada, edición limitada</p>
-          </div>
-        </a>
-
-        <!-- Agronobaby -->
-        <a href="product-2.html" class="store-card">
-          <div class="store-image-wrapper">
-            <img src="images/Print02.png" alt="Agronobaby" />
-          </div>
-          <div class="store-card-body">
-            <h2>Agronobaby</h2>
-            <p>Obra enmarcada, edición limitada</p>
-          </div>
-        </a>
-
-        <!-- Plugged -->
-        <a href="product-3.html" class="store-card">
-          <div class="store-image-wrapper">
-            <img src="images/Print03.png" alt="Plugged" />
-          </div>
-          <div class="store-card-body">
-            <h2>Plugged</h2>
-            <p>Obra enmarcada, edición limitada</p>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <header class="section-header">
-        <h1>About</h1>
-      </header>
-
-      <div class="about-page">
-        <img
-          src="images/julian-delgado_profile.png"
-          class="about-photo"
-          alt="Retrato de Julian Delgado"
-        />
-
-        <div class="about-col">
-          <h2>Julian Delgado</h2>
-          <p>
-            Como fotógrafo y artista visual, me dedico a retratar la vida diaria explorando la sensualidad 
-            y el erotismo en lo cotidiano. Crecí en Remedios de Escalada, donde la fotografía se transformó 
-            en mi medio para reinterpretar experiencias.
-          </p>
-          <p>
-          </p>
-          <p>
-          
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <a
-      href="https://www.instagram.com/_juliandelgado/"
-      class="footer-instagram"
-      target="_blank"
-      rel="noopener"
-      aria-label="Instagram de Julian Delgado"
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path
-          d="M8 3h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8zm4 2.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zm5.25-3.75a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25z"
-        />
-      </svg>
-    </a>
-    <p class="footer-copy">© 2025 Julian Delgado. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
