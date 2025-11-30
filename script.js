@@ -105,6 +105,9 @@ document.addEventListener("DOMContentLoaded", () => {
         gallerySingle.classList.add("view-active");
         galleryGrid.classList.remove("view-active");
       }
+
+      // ⭐ NUEVO: al abrir single view, subir al inicio
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   });
 
@@ -141,3 +144,4 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSingleView();
   }
 });
+
