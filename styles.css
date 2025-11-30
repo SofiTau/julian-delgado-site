@@ -11,8 +11,7 @@ body {
 }
 
 body {
-  font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
-    "Roboto", sans-serif;
+  font-family: "DM Sans", sans-serif;
   background: #ffffff;
   color: #111111;
   line-height: 1.5;
@@ -44,7 +43,7 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* llena toda la pantalla */
+  object-fit: cover;
 }
 
 .intro-enter {
@@ -58,12 +57,11 @@ body {
 
 .intro-symbol {
   font-size: 4rem;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.2em;
   color: #ffffff;
 }
 
-/* mientras la intro está activa, ocultamos el resto visualmente */
 body.intro-active .site-header,
 body.intro-active .site-main,
 body.intro-active .site-footer {
@@ -84,14 +82,20 @@ body.intro-active .site-footer {
   z-index: 10;
 }
 
+/* LOGO → DM Sans Regular */
 .logo {
-  font-weight: 600;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   font-size: 0.9rem;
 }
 
+/* NAV → Fraunces Thin Italic */
 .main-nav a {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-weight: 100;
   margin-left: 1rem;
   text-decoration: none;
   text-transform: lowercase;
@@ -136,16 +140,13 @@ body.intro-active .site-footer {
   margin-bottom: 1.5rem;
 }
 
+/* TÍTULOS DE SECCIÓN → DM Sans 400 */
 .section-header h1 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  font-weight: 500;
-}
-
-.section-text {
-  font-size: 0.95rem;
-  max-width: 640px;
 }
 
 /* =============== TOGGLE GRID / SINGLE =============== */
@@ -191,21 +192,27 @@ body.intro-active .site-footer {
   flex-direction: column;
 }
 
-/* ⬇️ AQUÍ EL CAMBIO PARA RESPETAR EL ASPECT RATIO ⬇️ */
 .work-card img {
   width: 100%;
   height: auto;
-  object-fit: contain; /* no recorta la imagen */
+  object-fit: contain; /* ⭐ mantiene aspect ratio sin recortar */
   display: block;
   margin-bottom: 0.6rem;
 }
 
+/* Títulos de fotos → DM Sans 400 */
 .work-card h2 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
   font-size: 0.95rem;
   margin-bottom: 0.15rem;
 }
 
+/* Subtítulos de fotos → Fraunces 100 Italic */
 .work-card p {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-weight: 100;
   font-size: 0.85rem;
   color: #555555;
 }
@@ -239,17 +246,24 @@ body.intro-active .site-footer {
 .single-image-wrapper img {
   width: 100%;
   height: auto;
-  max-height: calc(100vh - 220px);
   object-fit: contain;
+  max-height: calc(100vh - 220px);
   display: block;
 }
 
+/* DM Sans para títulos */
 .single-caption h2 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
   font-size: 0.95rem;
   margin-bottom: 0.15rem;
 }
 
+/* Fraunces 100 Italic para subtítulos */
 .single-caption p {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-weight: 100;
   font-size: 0.85rem;
   color: #555555;
 }
@@ -261,7 +275,7 @@ body.intro-active .site-footer {
   cursor: pointer;
 }
 
-/* MOBILE: flechas abajo de la foto, una a cada lado */
+/* MOBILE flechas */
 @media (max-width: 768px) {
   .single-view-inner {
     grid-template-columns: 1fr 1fr;
@@ -286,7 +300,7 @@ body.intro-active .site-footer {
   }
 }
 
-/* =============== STORE – GRILLA =============== */
+/* =============== STORE =============== */
 
 .store-grid {
   display: grid;
@@ -296,15 +310,14 @@ body.intro-active .site-footer {
 }
 
 .store-card {
-  display: flex;
-  flex-direction: column;
   text-decoration: none;
   color: inherit;
+  display: flex;
+  flex-direction: column;
 }
 
 .store-image-wrapper {
   width: 100%;
-  aspect-ratio: 3 / 4;
   background: #f2f2f2;
   overflow: hidden;
   margin-bottom: 0.6rem;
@@ -312,24 +325,29 @@ body.intro-active .site-footer {
 
 .store-image-wrapper img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  height: auto;
+  object-fit: contain; /* ⭐ NO CORTA LAS IMÁGENES */
 }
 
+/* DM Sans para títulos de store */
 .store-card-body h2 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
   font-size: 0.95rem;
-  font-weight: 500;
   margin-bottom: 0.2rem;
   color: #111111;
 }
 
+/* Fraunces para subtítulos */
 .store-card-body p {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-weight: 100;
   font-size: 0.85rem;
   color: #555555;
 }
 
-/* =============== ABOUT – PRODUCT PAGES (about-layout) =============== */
+/* =============== ABOUT (productos) =============== */
 
 .about-layout {
   display: grid;
@@ -340,23 +358,27 @@ body.intro-active .site-footer {
 
 .about-image-wrapper img {
   width: 100%;
-  display: block;
 }
 
+/* Sobre producto → títulos DM Sans */
 .about-text h2 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   margin-bottom: 0.75rem;
 }
 
+/* Texto → DM Sans 400 */
 .about-text p {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
   font-size: 0.9rem;
   color: #333333;
   margin-bottom: 0.75rem;
 }
 
-/* link "volver a la tienda" */
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -367,36 +389,35 @@ body.intro-active .site-footer {
   text-decoration: none;
 }
 
-.back-link svg {
-  width: 14px;
-  height: 14px;
-}
-
-/* =============== ABOUT – PÁGINA PRINCIPAL (about-page) =============== */
+/* =============== ABOUT (página principal) =============== */
 
 .about-page {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 3rem;
   margin-top: 2rem;
-  align-items: start;
 }
 
 .about-photo {
   width: 100%;
-  display: block;
   object-fit: cover;
 }
 
+/* NOMBRE → Fraunces 100 Italic */
 .about-col h2 {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-weight: 100;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.95rem;
   margin-bottom: 1.25rem;
-  font-weight: 500;
 }
 
+/* TEXTO ABOUT → DM Sans 400 */
 .about-col p {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
   margin-bottom: 1rem;
   font-size: 0.95rem;
   color: #333;
@@ -416,12 +437,7 @@ body.intro-active .site-footer {
   gap: 0.4rem;
 }
 
-.footer-instagram {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
+/* DM Sans Thin 100 */
 .footer-instagram svg {
   width: 18px;
   height: 18px;
@@ -429,11 +445,13 @@ body.intro-active .site-footer {
 }
 
 .footer-copy {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 100;
   font-size: 0.8rem;
   color: #777777;
 }
 
-/* =============== RESPONSIVE GLOBAL =============== */
+/* =============== RESPONSIVE =============== */
 
 @media (max-width: 900px) {
   .about-page {
