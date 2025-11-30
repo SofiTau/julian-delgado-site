@@ -11,7 +11,8 @@ body {
 }
 
 body {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Roboto", sans-serif;
   background: #ffffff;
   color: #111111;
   line-height: 1.5;
@@ -57,7 +58,7 @@ body {
 
 .intro-symbol {
   font-size: 4rem;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.2em;
   color: #ffffff;
 }
@@ -82,7 +83,6 @@ body.intro-active .site-footer {
   z-index: 10;
 }
 
-/* LOGO → DM Sans Regular */
 .logo {
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
@@ -91,15 +91,14 @@ body.intro-active .site-footer {
   font-size: 0.9rem;
 }
 
-/* NAV → Fraunces Thin Italic */
 .main-nav a {
-  font-family: "Fraunces", serif;
-  font-style: italic;
-  font-weight: 100;
   margin-left: 1rem;
   text-decoration: none;
   text-transform: lowercase;
   font-size: 0.9rem;
+  font-family: "Fraunces", serif;
+  font-weight: 100;
+  font-style: italic;
   color: #555555;
   padding-bottom: 0.2rem;
   border-bottom: 1px solid transparent;
@@ -140,13 +139,12 @@ body.intro-active .site-footer {
   margin-bottom: 1.5rem;
 }
 
-/* TÍTULOS DE SECCIÓN → DM Sans 400 */
 .section-header h1 {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 400;
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
+  font-family: "Fraunces", serif;  /* ⭐ NUEVO */
+  font-weight: 400;                /* ⭐ NUEVO */
 }
 
 /* =============== TOGGLE GRID / SINGLE =============== */
@@ -164,6 +162,8 @@ body.intro-active .site-footer {
   background: #ffffff;
   padding: 0.35rem 0.75rem;
   cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
 }
 
 .view-btn.active {
@@ -194,30 +194,28 @@ body.intro-active .site-footer {
 
 .work-card img {
   width: 100%;
-  height: auto;
-  object-fit: contain; /* ⭐ mantiene aspect ratio sin recortar */
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
   display: block;
   margin-bottom: 0.6rem;
 }
 
-/* Títulos de fotos → DM Sans 400 */
 .work-card h2 {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 400;
   font-size: 0.95rem;
   margin-bottom: 0.15rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
 }
 
-/* Subtítulos de fotos → Fraunces 100 Italic */
 .work-card p {
-  font-family: "Fraunces", serif;
-  font-style: italic;
-  font-weight: 100;
   font-size: 0.85rem;
   color: #555555;
+  font-family: "Fraunces", serif;
+  font-weight: 100;
+  font-style: italic;
 }
 
-/* =============== GALERÍA / SINGLE VIEW =============== */
+/* =============== SINGLE VIEW =============== */
 
 .gallery-single {
   display: none;
@@ -246,26 +244,24 @@ body.intro-active .site-footer {
 .single-image-wrapper img {
   width: 100%;
   height: auto;
-  object-fit: contain;
   max-height: calc(100vh - 220px);
+  object-fit: contain;
   display: block;
 }
 
-/* DM Sans para títulos */
 .single-caption h2 {
+  font-size: 0.95rem;
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
-  font-size: 0.95rem;
   margin-bottom: 0.15rem;
 }
 
-/* Fraunces 100 Italic para subtítulos */
 .single-caption p {
-  font-family: "Fraunces", serif;
-  font-style: italic;
-  font-weight: 100;
   font-size: 0.85rem;
   color: #555555;
+  font-family: "Fraunces", serif;
+  font-weight: 100;
+  font-style: italic;
 }
 
 .nav-arrow {
@@ -275,7 +271,7 @@ body.intro-active .site-footer {
   cursor: pointer;
 }
 
-/* MOBILE flechas */
+/* MOBILE */
 @media (max-width: 768px) {
   .single-view-inner {
     grid-template-columns: 1fr 1fr;
@@ -300,7 +296,7 @@ body.intro-active .site-footer {
   }
 }
 
-/* =============== STORE =============== */
+/* =============== STORE – GRID 1:1 =============== */
 
 .store-grid {
   display: grid;
@@ -310,14 +306,15 @@ body.intro-active .site-footer {
 }
 
 .store-card {
-  text-decoration: none;
-  color: inherit;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  color: inherit;
 }
 
 .store-image-wrapper {
   width: 100%;
+  aspect-ratio: 1 / 1; /* ⭐ CUADRADO */
   background: #f2f2f2;
   overflow: hidden;
   margin-bottom: 0.6rem;
@@ -325,29 +322,27 @@ body.intro-active .site-footer {
 
 .store-image-wrapper img {
   width: 100%;
-  height: auto;
-  object-fit: contain; /* ⭐ NO CORTA LAS IMÁGENES */
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-/* DM Sans para títulos de store */
 .store-card-body h2 {
+  font-size: 0.95rem;
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
-  font-size: 0.95rem;
-  margin-bottom: 0.2rem;
   color: #111111;
 }
 
-/* Fraunces para subtítulos */
 .store-card-body p {
-  font-family: "Fraunces", serif;
-  font-style: italic;
-  font-weight: 100;
   font-size: 0.85rem;
   color: #555555;
+  font-family: "Fraunces", serif;
+  font-weight: 100;
+  font-style: italic;
 }
 
-/* =============== ABOUT (productos) =============== */
+/* =============== ABOUT – PRODUCT PAGES =============== */
 
 .about-layout {
   display: grid;
@@ -358,25 +353,25 @@ body.intro-active .site-footer {
 
 .about-image-wrapper img {
   width: 100%;
+  display: block;
 }
 
-/* Sobre producto → títulos DM Sans */
 .about-text h2 {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 400;
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
+  font-family: "Fraunces", serif;
+  font-weight: 100;
+  font-style: italic;
   margin-bottom: 0.75rem;
 }
 
-/* Texto → DM Sans 400 */
 .about-text p {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 400;
   font-size: 0.9rem;
   color: #333333;
   margin-bottom: 0.75rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
 }
 
 .back-link {
@@ -387,42 +382,49 @@ body.intro-active .site-footer {
   font-size: 0.85rem;
   color: #888888;
   text-decoration: none;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 100;
 }
 
-/* =============== ABOUT (página principal) =============== */
+.back-link svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* =============== ABOUT – MAIN PAGE =============== */
 
 .about-page {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 3rem;
   margin-top: 2rem;
+  align-items: start;
 }
 
 .about-photo {
   width: 100%;
+  display: block;
   object-fit: cover;
 }
 
-/* NOMBRE → Fraunces 100 Italic */
 .about-col h2 {
-  font-family: "Fraunces", serif;
-  font-style: italic;
-  font-weight: 100;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.95rem;
+  font-family: "Fraunces", serif;
+  font-weight: 100;
+  font-style: italic;
   margin-bottom: 1.25rem;
 }
 
-/* TEXTO ABOUT → DM Sans 400 */
 .about-col p {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 400;
   margin-bottom: 1rem;
   font-size: 0.95rem;
   color: #333;
   max-width: 550px;
   line-height: 1.55;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
 }
 
 /* =============== FOOTER =============== */
@@ -437,7 +439,6 @@ body.intro-active .site-footer {
   gap: 0.4rem;
 }
 
-/* DM Sans Thin 100 */
 .footer-instagram svg {
   width: 18px;
   height: 18px;
@@ -445,10 +446,10 @@ body.intro-active .site-footer {
 }
 
 .footer-copy {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 100;
   font-size: 0.8rem;
   color: #777777;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 100;
 }
 
 /* =============== RESPONSIVE =============== */
