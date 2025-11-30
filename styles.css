@@ -142,8 +142,8 @@ body.intro-active .site-footer {
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  font-family: "Fraunces", serif; /* títulos de sección */
-  font-weight: 400;
+  font-family: "Fraunces", serif;
+  font-weight: 400;  /* FRAUNCES REGULAR 400 */
 }
 
 /* =============== TOGGLE GRID / SINGLE =============== */
@@ -191,7 +191,7 @@ body.intro-active .site-footer {
   flex-direction: column;
 }
 
-/* ⭐ MUESTRA LAS FOTOS COMPLETAS, SIN RECORTAR */
+/* ⭐ FOTOS COMPLETAS, RESPETANDO ASPECT RATIO ORIGINAL */
 .work-card img {
   width: 100%;
   height: auto;
@@ -315,7 +315,7 @@ body.intro-active .site-footer {
 
 .store-image-wrapper {
   width: 100%;
-  aspect-ratio: 1 / 1; /* ⭐ cuadrado perfecto */
+  aspect-ratio: 1 / 1;
   background: #f2f2f2;
   overflow: hidden;
   margin-bottom: 0.6rem;
@@ -343,7 +343,7 @@ body.intro-active .site-footer {
   font-style: italic;
 }
 
-/* =============== PRODUCT PAGES (about-layout) =============== */
+/* =============== PRODUCT PAGES =============== */
 
 .about-layout {
   display: grid;
@@ -375,6 +375,7 @@ body.intro-active .site-footer {
   font-weight: 400;
 }
 
+/* volver a la tienda */
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -392,7 +393,7 @@ body.intro-active .site-footer {
   height: 14px;
 }
 
-/* =============== ABOUT PAGE =============== */
+/* =============== ABOUT PAGE PRINCIPAL =============== */
 
 .about-page {
   display: grid;
@@ -408,7 +409,7 @@ body.intro-active .site-footer {
   object-fit: cover;
 }
 
-/* título "Julian Delgado" → DM Sans 400 */
+/* Título ABOUT → DM Sans 400 */
 .about-col h2 {
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -418,16 +419,16 @@ body.intro-active .site-footer {
   font-weight: 400;
 }
 
-/* párrafos bio → Fraunces 100 italic */
+/* ⭐ PÁRRAFO ABOUT → DM Sans ExtraLight 200 */
 .about-col p {
   margin-bottom: 1rem;
   font-size: 0.95rem;
   color: #333;
   max-width: 550px;
   line-height: 1.55;
-  font-family: "Fraunces", serif;
-  font-weight: 100;
-  font-style: italic;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 200;
+  font-style: normal;
 }
 
 /* =============== FOOTER =============== */
@@ -489,4 +490,3 @@ body.intro-active .site-footer {
     grid-template-columns: 1fr;
   }
 }
-
