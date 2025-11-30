@@ -69,8 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------- SINGLE VIEW LOGIC ---------- */
   const workCards = document.querySelectorAll(".work-card");
   const singleImage = document.getElementById("singleImage");
-  const singleTitle = document.getElementById("singleTitle");
-  const singleText = document.getElementById("singleText");
+  const singleTitle = document.getElementById("singleTitle"); // puede no existir
+  const singleText = document.getElementById("singleText");   // puede no existir
   const btnPrev = document.getElementById("singlePrev");
   const btnNext = document.getElementById("singleNext");
 
@@ -80,6 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const img = card.querySelector("img");
     const title = card.querySelector("h2");
     const text = card.querySelector("p");
+
+    if (!img) return;
 
     works.push({
       src: img.getAttribute("src"),
@@ -91,10 +93,14 @@ document.addEventListener("DOMContentLoaded", () => {
       currentIndex = index;
       updateSingleView();
 
-      viewButtons.forEach((b) => b.classList.remove("active"));
-      const singleBtn = document.querySelector('.view-btn[data-view="single"]');
-      if (singleBtn) singleBtn.classList.add("active");
+      // activar botón de single view
+      if (viewButtons.length) {
+        viewButtons.forEach((b) => b.classList.remove("active"));
+        const singleBtn = document.querySelector('.view-btn[data-view="single"]');
+        if (singleBtn) singleBtn.classList.add("active");
+      }
 
+      // mostrar sólo single view
       if (gallerySingle && galleryGrid) {
         gallerySingle.classList.add("view-active");
         galleryGrid.classList.remove("view-active");
@@ -105,11 +111,14 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentIndex = 0;
 
   function updateSingleView() {
-    if (!works.length || !singleImage || !singleTitle || !singleText) return;
+    // solo exige que haya works y que exista la imagen
+    if (!works.length || !singleImage) return;
     const item = works[currentIndex];
     singleImage.src = item.src;
-    singleTitle.textContent = item.title;
-    singleText.textContent = item.text;
+
+    // título y texto son opcionales
+    if (singleTitle) singleTitle.textContent = item.title;
+    if (singleText) singleText.textContent = item.text;
   }
 
   if (btnPrev) {
