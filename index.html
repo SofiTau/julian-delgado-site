@@ -1,92 +1,156 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julián</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Julián Delgado</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: white;
+            color: black;
+            font-family: "Georgia", serif;
+        }
+
+        header {
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 22px;
+            letter-spacing: 0.5px;
+        }
+
+        .buttons button {
+            background: none;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+            padding: 6px 10px;
+        }
+
+        /* SINGLE VIEW */
+        #single-view {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        #single-view img {
+            max-width: 90%;
+            max-height: 80vh;
+        }
+
+        /* GRID */
+        #grid-view {
+            display: none; /* empieza oculto */
+            padding: 20px;
+            column-count: 3;
+            column-gap: 15px;
+        }
+
+        #grid-view img {
+            width: 100%;
+            margin-bottom: 15px;
+            cursor: pointer;
+            break-inside: avoid;
+        }
+
+        /* BIO */
+        .bio {
+            text-align: center;
+            max-width: 700px;
+            margin: 60px auto;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #444;
+        }
+    </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Julián</h1>
-    </header>
-
+<header>
+    <div class="title">Julián Delgado</div>
     <div class="buttons">
-        <button onclick="showSingle()">Single View</button>
-        <button onclick="showGrid()">Grid View</button>
+        <button onclick="showSingle()">Single</button>
+        <button onclick="showGrid()">Grid</button>
     </div>
+</header>
 
-    <!-- SINGLE VIEW INICIAL -->
-    <div id="single-view" class="single">
-        <img id="single-img" src="images/000017830017.jpg" alt="">
-    </div>
+<!-- SINGLE VIEW DEFAULT -->
+<div id="single-view">
+    <img id="single-img" src="images/000017830017.jpg" />
+</div>
 
-    <!-- GRID VIEW -->
-    <div id="grid-view" class="grid">
+<!-- GRID VIEW -->
+<div id="grid-view">
 
-        <img src="images/000017830017.jpg" onclick="openSingle(this.src)">
-        <img src="images/032603.jpg" onclick="openSingle(this.src)">
-        <img src="images/085402.jpg" onclick="openSingle(this.src)">
-        <img src="images/085503.jpg" onclick="openSingle(this.src)">
-        <img src="images/60226.jpg" onclick="openSingle(this.src)">
-        <img src="images/60329.jpg" onclick="openSingle(this.src)">
-        <img src="images/70949.jpg" onclick="openSingle(this.src)">
-        <img src="images/822412.jpg" onclick="openSingle(this.src)">
-        <img src="images/AGUSTINA-POR-JULIAN-DELGADO-01.jpg" onclick="openSingle(this.src)">
-        <img src="images/CELEBRACION.jpg" onclick="openSingle(this.src)">
-        <img src="images/DARIA-POR-JULIAN-DELGADO7.jpg" onclick="openSingle(this.src)">
-        <img src="images/DARIA-POR-JULIAN-DELGADO8.jpg" onclick="openSingle(this.src)">
-        <img src="images/DOUGLAS-POR-JULIAN-DELGADO-01.jpg" onclick="openSingle(this.src)">
-        <img src="images/FERMIN-ULTIMO-ADIOS-01.jpg" onclick="openSingle(this.src)">
-        <img src="images/IÑAKI_ARAMBURU_POR_JULIANDELGADO.06.jpg" onclick="openSingle(this.src)">
-        <img src="images/JUANMA-JULIAN-DELGADO-06.jpg" onclick="openSingle(this.src)">
-        <img src="images/JUANMA.jpg" onclick="openSingle(this.src)">
-        <img src="images/MARTINO-POR-JULIAN-DELGADO.jpg" onclick="openSingle(this.src)">
-        <img src="images/MATEO_POR_JULIAN_DELGADO 2.jpg" onclick="openSingle(this.src)">
-        <img src="images/MATO-POR-JULIAN-DELGADO-01.jpg" onclick="openSingle(this.src)">
-        <img src="images/MATO-POR-JULIAN-DELGADO-02.jpg" onclick="openSingle(this.src)">
-        <img src="images/MILY-DOLLY-POR-JULIAN-DELGADO-04.jpg" onclick="openSingle(this.src)">
-        <img src="images/Marcos.por.julian.delgado.01.jpg" onclick="openSingle(this.src)">
-        <img src="images/Marcos.por.julian.delgado.15.jpg" onclick="openSingle(this.src)">
-        <img src="images/NIÑO.FAVELA.01.jpg" onclick="openSingle(this.src)">
-        <img src="images/PAULA-POSSE-BY-JULIAN-DELGADO-2.jpg" onclick="openSingle(this.src)">
-        <img src="images/SAM_9075.jpg" onclick="openSingle(this.src)">
-        <img src="images/TA70-POR-JULIAN-DELGADO-011.jpg" onclick="openSingle(this.src)">
-        <img src="images/TA70-POR-JULIAN-DELGADO-02.jpg" onclick="openSingle(this.src)">
-        <img src="images/eleonora,by,juliann.delgado13jpg.jpg" onclick="openSingle(this.src)">
-        <img src="images/eleonora,by,juliann.delgado20jpg 2.jpg" onclick="openSingle(this.src)">
-        
-    </div>
+    <!-- LISTA DE IMÁGENES REALES -->
+    <img src="images/000017830017.jpg" onclick="openSingle(this.src)" />
+    <img src="images/032603.jpg" onclick="openSingle(this.src)" />
+    <img src="images/085402.jpg" onclick="openSingle(this.src)" />
+    <img src="images/085503.jpg" onclick="openSingle(this.src)" />
+    <img src="images/60226.jpg" onclick="openSingle(this.src)" />
+    <img src="images/60329.jpg" onclick="openSingle(this.src)" />
+    <img src="images/70949.jpg" onclick="openSingle(this.src)" />
+    <img src="images/822412.jpg" onclick="openSingle(this.src)" />
+    <img src="images/AGUSTINA-POR-JULIAN-DELGADO-01.jpg" onclick="openSingle(this.src)" />
+    <img src="images/CELEBRACION.jpg" onclick="openSingle(this.src)" />
+    <img src="images/DARIA-POR-JULIAN-DELGADO7.jpg" onclick="openSingle(this.src)" />
+    <img src="images/DARIA-POR-JULIAN-DELGADO8.jpg" onclick="openSingle(this.src)" />
+    <img src="images/DOUGLAS-POR-JULIAN-DELGADO-01.jpg" onclick="openSingle(this.src)" />
+    <img src="images/FERMIN-ULTIMO-ADIOS-01.jpg" onclick="openSingle(this.src)" />
+    <img src="images/IÑAKI_ARAMBURU_POR_JULIANDELGADO.06.jpg" onclick="openSingle(this.src)" />
+    <img src="images/JUANMA-JULIAN-DELGADO-06.jpg" onclick="openSingle(this.src)" />
+    <img src="images/JUANMA.jpg" onclick="openSingle(this.src)" />
+    <img src="images/MARTINO-POR-JULIAN-DELGADO.jpg" onclick="openSingle(this.src)" />
+    <img src="images/MATEO_POR_JULIAN_DELGADO 2.jpg" onclick="openSingle(this.src)" />
+    <img src="images/MATO-POR-JULIAN-DELGADO-01.jpg" onclick="openSingle(this.src)" />
+    <img src="images/MATO-POR-JULIAN-DELGADO-02.jpg" onclick="openSingle(this.src)" />
+    <img src="images/MILY-DOLLY-POR-JULIAN-DELGADO-04.jpg" onclick="openSingle(this.src)" />
+    <img src="images/Marcos.por.julian.delgado.01.jpg" onclick="openSingle(this.src)" />
+    <img src="images/Marcos.por.julian.delgado.15.jpg" onclick="openSingle(this.src)" />
+    <img src="images/NIÑO.FAVELA.01.jpg" onclick="openSingle(this.src)" />
+    <img src="images/PAULA-POSSE-BY-JULIAN-DELGADO-2.jpg" onclick="openSingle(this.src)" />
+    <img src="images/SAM_9075.jpg" onclick="openSingle(this.src)" />
+    <img src="images/TA70-POR-JULIAN-DELGADO-011.jpg" onclick="openSingle(this.src)" />
+    <img src="images/TA70-POR-JULIAN-DELGADO-02.jpg" onclick="openSingle(this.src)" />
+    <img src="images/eleonora,by,juliann.delgado13jpg.jpg" onclick="openSingle(this.src)" />
+    <img src="images/eleonora,by,juliann.delgado20jpg 2.jpg" onclick="openSingle(this.src)" />
 
-    <div class="bio">
-        Como fotógrafo y artista visual, me dedico a retratar la vida diaria explorando la sensualidad
-        y el erotismo en lo cotidiano. Crecí en Remedios de Escalada, donde la fotografía se transformó
-        en mi medio para reinterpretar experiencias.
-    </div>
+</div>
 
-    <script>
-        const singleView = document.getElementById("single-view");
-        const gridView = document.getElementById("grid-view");
-        const singleImg = document.getElementById("single-img");
+<!-- BIO -->
+<div class="bio">
+    Como fotógrafo y artista visual, me dedico a retratar la vida diaria explorando la sensualidad
+    y el erotismo en lo cotidiano. Crecí en Remedios de Escalada, donde la fotografía se transformó
+    en mi medio para reinterpretar experiencias.
+</div>
 
-        function showSingle() {
-            singleView.style.display = "flex";
-            gridView.style.display = "none";
-        }
+<script>
+    function showSingle() {
+        document.getElementById("single-view").style.display = "flex";
+        document.getElementById("grid-view").style.display = "none";
+    }
 
-        function showGrid() {
-            singleView.style.display = "none";
-            gridView.style.display = "block";
-        }
+    function showGrid() {
+        document.getElementById("single-view").style.display = "none";
+        document.getElementById("grid-view").style.display = "block";
+        window.scrollTo(0, 0);
+    }
 
-        function openSingle(src) {
-            singleImg.src = src;
-            showSingle();
-            window.scrollTo(0, 0);
-        }
-    </script>
+    function openSingle(src) {
+        document.getElementById("single-img").src = src;
+        showSingle();
+        window.scrollTo(0, 0);
+    }
+</script>
 
 </body>
 </html>
