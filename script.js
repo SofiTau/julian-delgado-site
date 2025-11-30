@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- NAV SECTIONS + HASH INICIAL (#home, #store, #about) ---------- */
   if (sections.length) {
-    // Si viene con hash (index.html#store, index.html#about, etc.)
     if (hash) {
       // activar sección según el hash
       sections.forEach((sec) => {
@@ -31,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      // ocultar intro si entramos con hash (ej: desde product-1.html → #store)
+      // si entramos con hash, NO mostramos la intro
       if (introOverlay) {
         introOverlay.classList.add("hidden");
         body.classList.remove("intro-active");
@@ -41,11 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
-      // subir al inicio
       window.scrollTo({ top: 0 });
+    } else {
+      // si NO hay hash, esta es la visita "normal" → activamos la intro
+      body.classList.add("intro-active");
     }
 
-    // listeners de navegación (click en el menú dentro del index)
+    // listeners de navegación (menú)
     navLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
         const sectionId = link.dataset.section;
@@ -69,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ---------- INTRO OVERLAY (solo si no venís con hash) ---------- */
+  /* ---------- INTRO OVERLAY (click en +) ---------- */
   if (introOverlay && introEnter) {
     introEnter.addEventListener("click", () => {
       introOverlay.classList.add("hidden");
@@ -155,7 +156,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const item = works[currentIndex];
     singleImage.src = item.src;
 
-    // título y texto son opcionales
     if (singleTitle) singleTitle.textContent = item.title;
     if (singleText) singleText.textContent = item.text;
   }
