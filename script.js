@@ -1,12 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* ---------- NAV SECTIONS + HASH INICIAL (#home, #store, #about) ---------- */
+  /* ---------- REFERENCIAS BÁSICAS ---------- */
+  const body = document.body;
+  const introOverlay = document.getElementById("introOverlay");
+  const introEnter = document.getElementById("introEnter");
+
   const navLinks = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll(".section");
+  const hash = window.location.hash.replace("#", "");
 
-  // Si estamos en index.html (hay secciones)
+  /* ---------- NAV SECTIONS + HASH INICIAL (#home, #store, #about) ---------- */
   if (sections.length) {
-    const hash = window.location.hash.replace("#", "");
-
+    // Si viene con hash (index.html#store, index.html#about, etc.)
     if (hash) {
       // activar sección según el hash
       sections.forEach((sec) => {
@@ -27,11 +31,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
+      // ocultar intro si entramos con hash (ej: desde product-1.html → #store)
+      if (introOverlay) {
+        introOverlay.classList.add("hidden");
+        body.classList.remove("intro-active");
+        const video = introOverlay.querySelector("video");
+        if (video) {
+          video.pause();
+        }
+      }
+
       // subir al inicio
       window.scrollTo({ top: 0 });
     }
 
-    // listeners de navegación (click en el menú)
+    // listeners de navegación (click en el menú dentro del index)
     navLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
         const sectionId = link.dataset.section;
@@ -55,11 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ---------- INTRO OVERLAY ---------- */
-  const body = document.body;
-  const introOverlay = document.getElementById("introOverlay");
-  const introEnter = document.getElementById("introEnter");
-
+  /* ---------- INTRO OVERLAY (solo si no venís con hash) ---------- */
   if (introOverlay && introEnter) {
     introEnter.addEventListener("click", () => {
       introOverlay.classList.add("hidden");
