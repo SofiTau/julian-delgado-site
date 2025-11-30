@@ -191,10 +191,11 @@ body.intro-active .site-footer {
   flex-direction: column;
 }
 
+/* ⬇️ AQUÍ EL CAMBIO PARA RESPETAR EL ASPECT RATIO ⬇️ */
 .work-card img {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain; /* no recorta la imagen */
   display: block;
   margin-bottom: 0.6rem;
 }
@@ -466,4 +467,3 @@ body.intro-active .site-footer {
     grid-template-columns: 1fr;
   }
 }
-
