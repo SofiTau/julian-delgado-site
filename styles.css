@@ -274,7 +274,7 @@ body.intro-active .site-footer {
 }
 
 .store-card-body h2 {
-  font-family: "DM Sans", sans-serif;
+  font-family: "Fraunces", serif;
   font-weight: 400;
   font-size: 1.1rem;
   text-transform: uppercase;
@@ -443,3 +443,4 @@ body.intro-active .site-footer {
     grid-template-columns: 1fr;
   }
 }
+
