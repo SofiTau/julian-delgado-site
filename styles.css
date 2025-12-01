@@ -90,18 +90,22 @@ body.intro-active .site-footer {
   text-transform: uppercase;
 }
 
-/* FIX — home / store / about en Fraunces 400 */
+/* home / store / about */
 .main-nav a {
   margin-left: 1rem;
   text-decoration: none;
   text-transform: lowercase;
-  font-family: "Fraunces", serif !important;
-  font-weight: 400 !important;
-  font-style: normal !important;
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: 0.9rem;
-  color: #111111 !important;
+  color: #111111;
   padding-bottom: 0.2rem;
   border-bottom: 1px solid transparent;
+}
+
+.main-nav a:hover {
+  color: #111111;
 }
 
 .main-nav a.active {
@@ -134,7 +138,7 @@ body.intro-active .site-footer {
   margin-bottom: 1.5rem;
 }
 
-/* Títulos principales: Fraunces 400 */
+/* Títulos: Selected Works / Store / About */
 .section-header h1 {
   font-family: "Fraunces", serif;
   font-weight: 400;
@@ -158,10 +162,10 @@ body.intro-active .site-footer {
   background: #ffffff;
   padding: 0.35rem 0.75rem;
   cursor: pointer;
-  color: #111 !important; /* FIX iOS */
+  color: #111111;
 }
 
-/* =============== GALERÍA / GRID VIEW =============== */
+/* =============== HOME – GRID DE OBRAS =============== */
 
 .gallery {
   margin-top: 1rem;
@@ -171,20 +175,22 @@ body.intro-active .site-footer {
   display: none;
 }
 
+/* Grid sencillo en filas, orden natural, fotos completas */
 .gallery-grid.view-active {
-  display: block;
-  column-count: 3;
-  column-gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  align-items: flex-start;
 }
 
 .work-card {
-  break-inside: avoid;
-  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .work-card img {
   width: 100%;
-  height: auto;
+  height: auto;       /* respeta aspect ratio */
   object-fit: contain;
   display: block;
   margin-bottom: 0.6rem;
@@ -220,7 +226,7 @@ body.intro-active .site-footer {
   max-height: calc(100vh - 200px);
 }
 
-/* FIX — flechas siempre negras */
+/* Flechas single view */
 .nav-arrow {
   border: none;
   background: transparent;
@@ -228,11 +234,11 @@ body.intro-active .site-footer {
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
-  color: #111 !important;
-  -webkit-text-fill-color: #111 !important;
+  color: #111111;
+  -webkit-text-fill-color: #111111;
 }
 
-/* =============== STORE =============== */
+/* =============== STORE – GRID Y TEXTOS =============== */
 
 .store-grid {
   display: grid;
@@ -242,19 +248,19 @@ body.intro-active .site-footer {
 }
 
 .store-card {
-  display: block;
-  text-decoration: none !important;
-  color: #111 !important;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #111111;
 }
 
-/* FIX — desactivar color violeta Safari */
 .store-card:visited {
-  color: #111 !important;
+  color: #111111;
 }
 
 .store-image-wrapper {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1 / 1;     /* cuadrados */
   background: #f2f2f2;
   overflow: hidden;
   margin-bottom: 0.6rem;
@@ -264,37 +270,112 @@ body.intro-active .site-footer {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-/* =============== ABOUT MAIN PAGE =============== */
+.store-card-body h2 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.2rem;
+}
+
+.store-card-body p {
+  font-family: "Fraunces", serif;
+  font-weight: 100;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #555555;
+}
+
+/* =============== PRODUCT PAGES (about-layout) =============== */
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr;  /* foto / texto */
+  gap: 2rem;
+  margin-top: 1.5rem;
+  align-items: flex-start;
+}
+
+.about-image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Título dentro del product: "Obra enmarcada — Edición limitada" */
+.about-text h2 {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: 1rem;
+  text-transform: none;
+  letter-spacing: normal;
+  margin-bottom: 0.75rem;
+}
+
+/* Párrafos de los productos */
+.about-text p {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 200;
+  font-size: 0.95rem;
+  color: #333333;
+  margin-bottom: 0.75rem;
+}
+
+/* link "Volver al store" */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 1.5rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 200;
+  font-size: 0.85rem;
+  color: #888888;
+  text-decoration: none;
+}
+
+.back-link svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* =============== ABOUT – PÁGINA PRINCIPAL =============== */
 
 .about-page {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 3rem;
   margin-top: 2rem;
+  align-items: start;
 }
 
 .about-photo {
   width: 100%;
   display: block;
+  object-fit: cover;
 }
 
 .about-col h2 {
   font-family: "Fraunces", serif;
   font-weight: 400;
-  font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
+  font-size: 0.95rem;
   margin-bottom: 1.25rem;
 }
 
 .about-col p {
   font-family: "DM Sans", sans-serif;
   font-weight: 200;
-  font-size: 0.95rem;
   margin-bottom: 1rem;
+  font-size: 0.95rem;
   color: #333;
+  max-width: 550px;
+  line-height: 1.55;
 }
 
 /* =============== FOOTER =============== */
@@ -303,6 +384,16 @@ body.intro-active .site-footer {
   border-top: 1px solid #e0e0e0;
   padding: 1.5rem 1rem 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.footer-instagram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .footer-instagram svg {
@@ -315,7 +406,7 @@ body.intro-active .site-footer {
   font-family: "DM Sans", sans-serif;
   font-weight: 200;
   font-size: 0.8rem;
-  color: #777;
+  color: #777777;
 }
 
 /* =============== RESPONSIVE =============== */
@@ -324,20 +415,31 @@ body.intro-active .site-footer {
   .about-page {
     grid-template-columns: 1fr;
   }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
   .section-header {
     flex-direction: column;
+    align-items: flex-start;
     gap: 0.75rem;
   }
 
   .site-header {
     flex-direction: column;
+    align-items: flex-start;
     gap: 0.75rem;
   }
 
-  .gallery-grid.view-active {
-    column-count: 1;
+  .main-nav a {
+    margin-left: 0;
+    margin-right: 1rem;
+  }
+
+  .store-grid {
+    grid-template-columns: 1fr;
   }
 }
