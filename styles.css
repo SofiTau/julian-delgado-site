@@ -62,7 +62,6 @@ body {
   color: #ffffff;
 }
 
-/* mientras la intro está activa, ocultamos el resto visualmente */
 body.intro-active .site-header,
 body.intro-active .site-main,
 body.intro-active .site-footer {
@@ -91,14 +90,17 @@ body.intro-active .site-footer {
   font-size: 0.9rem;
 }
 
+/* 🔥 CAMBIO: ahora Fraunces 400 */
 .main-nav a {
   margin-left: 1rem;
   text-decoration: none;
   text-transform: lowercase;
   font-size: 0.9rem;
+
   font-family: "Fraunces", serif;
-  font-weight: 100;
-  font-style: italic;
+  font-weight: 400;     /* antes 100 */
+  font-style: normal;   /* antes italic */
+
   color: #555555;
   padding-bottom: 0.2rem;
   border-bottom: 1px solid transparent;
@@ -163,26 +165,16 @@ body.intro-active .site-footer {
   padding: 0.35rem 0.75rem;
   cursor: pointer;
 
-  /* texto negro en todos lados, incluido iOS */
-  color: #000000;
-  -webkit-text-fill-color: #000000;
+  /* texto negro siempre */
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
 }
 
 .view-btn.active {
-  border-color: #111111;
-  color: #000000;
-  -webkit-text-fill-color: #000000;
+  border-color: #111;
 }
 
-/* =============== GALERÍA / GRID VIEW (HOME) =============== */
-
-.gallery {
-  margin-top: 1rem;
-}
-
-.gallery-grid {
-  display: none;
-}
+/* =============== GRID VIEW (home) =============== */
 
 .gallery-grid.view-active {
   display: grid;
@@ -191,24 +183,15 @@ body.intro-active .site-footer {
   align-items: start;
 }
 
-.work-card {
-  display: flex;
-  flex-direction: column;
-}
-
 .work-card img {
   width: 100%;
-  height: auto;          /* respeta el aspect ratio original */
+  height: auto;
   object-fit: contain;
   display: block;
   margin-bottom: 0.6rem;
 }
 
 /* =============== SINGLE VIEW =============== */
-
-.gallery-single {
-  display: none;
-}
 
 .gallery-single.view-active {
   display: block;
@@ -222,31 +205,25 @@ body.intro-active .site-footer {
   gap: 1rem;
 }
 
-.single-image-wrapper {
-  width: 100%;
-  max-width: 1000px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
 .single-image-wrapper img {
   width: 100%;
   height: auto;
   max-height: calc(100vh - 220px);
   object-fit: contain;
-  display: block;
 }
 
+/* 🔥 CAMBIO: FORZAR COLOR NEGRO EN SAFARI IOS */
 .nav-arrow {
   border: none;
   background: transparent;
   font-size: 2rem;
   cursor: pointer;
   line-height: 1;
+
+  color: #111 !important;
+  -webkit-text-fill-color: #111 !important;
 }
 
-/* MOBILE: flechas abajo de la foto, una a cada lado */
 @media (max-width: 768px) {
   .single-view-inner {
     grid-template-columns: 1fr 1fr;
@@ -255,23 +232,22 @@ body.intro-active .site-footer {
 
   .single-image-wrapper {
     grid-column: 1 / 3;
-    grid-row: 1;
   }
 
   #singlePrev {
     grid-column: 1;
     grid-row: 2;
-    justify-self: flex-end;
+    justify-self: end;
   }
 
   #singleNext {
     grid-column: 2;
     grid-row: 2;
-    justify-self: flex-start;
+    justify-self: start;
   }
 }
 
-/* =============== STORE – GRILLA 1:1 =============== */
+/* =============== STORE – GRID 1:1 =============== */
 
 .store-grid {
   display: grid;
@@ -280,18 +256,9 @@ body.intro-active .site-footer {
   margin-top: 1rem;
 }
 
-.store-card {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  color: inherit;
-}
-
-/* evitar links violetas/subrayados */
+.store-card,
 .store-card:link,
-.store-card:visited,
-.store-card:hover,
-.store-card:active {
+.store-card:visited {
   text-decoration: none;
   color: inherit;
 }
@@ -299,9 +266,7 @@ body.intro-active .site-footer {
 .store-image-wrapper {
   width: 100%;
   aspect-ratio: 1 / 1;
-  background: #f2f2f2;
   overflow: hidden;
-  margin-bottom: 0.6rem;
 }
 
 .store-image-wrapper img {
@@ -311,22 +276,20 @@ body.intro-active .site-footer {
 }
 
 .store-card-body h2 {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   font-weight: 400;
   font-size: 0.95rem;
-  margin-bottom: 0.2rem;
-  color: #111111;
 }
 
 .store-card-body p {
-  font-family: "Fraunces", serif;
+  font-family: "Fraunces";
   font-weight: 100;
   font-style: italic;
   font-size: 0.85rem;
-  color: #555555;
+  color: #555;
 }
 
-/* =============== PRODUCT PAGES (about-layout) =============== */
+/* =============== PRODUCT PAGES =============== */
 
 .about-layout {
   display: grid;
@@ -335,37 +298,21 @@ body.intro-active .site-footer {
   margin-top: 1rem;
 }
 
-.about-image-wrapper img {
-  width: 100%;
-  display: block;
-}
-
 .about-text h2 {
-  font-family: "Fraunces", serif;
+  font-family: "Fraunces";
   font-weight: 400;
-  font-size: 1rem;
-  text-transform: none;
-  letter-spacing: normal;
-  margin-bottom: 0.75rem;
 }
 
 .about-text p {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   font-weight: 200;
-  font-size: 0.9rem;
-  color: #333333;
-  margin-bottom: 0.75rem;
-  line-height: 1.55;
 }
 
-/* link "volver a la tienda" */
 .back-link {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  margin-top: 1.5rem;
-  font-size: 0.85rem;
-  color: #888888;
+  color: #888;
   text-decoration: none;
 }
 
@@ -374,102 +321,34 @@ body.intro-active .site-footer {
   height: 14px;
 }
 
-/* =============== ABOUT – PÁGINA PRINCIPAL (about-page) =============== */
-
-.about-page {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 3rem;
-  margin-top: 2rem;
-  align-items: start;
-}
-
-.about-photo {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-}
+/* =============== ABOUT HOME =============== */
 
 .about-col h2 {
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.95rem;
-  margin-bottom: 1.25rem;
-  font-family: "Fraunces", serif;
+  font-family: "Fraunces";
   font-weight: 400;
 }
 
 .about-col p {
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   font-weight: 200;
-  color: #333;
-  max-width: 550px;
-  line-height: 1.55;
 }
 
 /* =============== FOOTER =============== */
 
-.site-footer {
-  border-top: 1px solid #e0e0e0;
-  padding: 1.5rem 1rem 2rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.footer-instagram {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .footer-instagram svg {
   width: 18px;
   height: 18px;
-  fill: #111111;
+  fill: #111;
 }
 
 .footer-copy {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   font-weight: 200;
   font-size: 0.8rem;
-  color: #777777;
-}
-
-/* =============== RESPONSIVE GLOBAL =============== */
-
-@media (max-width: 900px) {
-  .about-page {
-    grid-template-columns: 1fr;
-  }
-
-  .about-layout {
-    grid-template-columns: 1fr;
-  }
+  color: #777;
 }
 
 @media (max-width: 768px) {
-  .section-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-
-  .site-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-
-  .main-nav a {
-    margin-left: 0;
-    margin-right: 1rem;
-  }
-
   .store-grid {
     grid-template-columns: 1fr;
   }
