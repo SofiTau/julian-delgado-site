@@ -11,7 +11,7 @@ body {
 }
 
 body {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: #ffffff;
   color: #111111;
   line-height: 1.5;
@@ -57,11 +57,12 @@ body {
 
 .intro-symbol {
   font-size: 4rem;
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 0.2em;
   color: #ffffff;
 }
 
+/* Oculta el sitio while intro-active */
 body.intro-active .site-header,
 body.intro-active .site-main,
 body.intro-active .site-footer {
@@ -82,6 +83,7 @@ body.intro-active .site-footer {
   z-index: 10;
 }
 
+/* LOGO */
 .logo {
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
@@ -90,17 +92,19 @@ body.intro-active .site-footer {
   font-size: 0.9rem;
 }
 
+/* NAV */
 .main-nav a {
   margin-left: 1rem;
   text-decoration: none;
   text-transform: lowercase;
   font-size: 0.9rem;
-  font-family: "Fraunces", serif;
-  font-weight: 400;
-  font-style: normal;
   color: #555555;
   padding-bottom: 0.2rem;
   border-bottom: 1px solid transparent;
+
+  font-family: "Fraunces", serif;
+  font-weight: 100;
+  font-style: italic;
 }
 
 .main-nav a:hover {
@@ -138,11 +142,11 @@ body.intro-active .site-footer {
   margin-bottom: 1.5rem;
 }
 
-/* TITULOS DE SECCIÓN: SELECTED WORKS / STORE / ABOUT */
 .section-header h1 {
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
+
   font-family: "Fraunces", serif;
   font-weight: 400;
 }
@@ -162,10 +166,15 @@ body.intro-active .site-footer {
   background: #ffffff;
   padding: 0.35rem 0.75rem;
   cursor: pointer;
+
+  color: #000000;
+  -webkit-text-fill-color: #000000;
 }
 
 .view-btn.active {
   border-color: #111111;
+  color: #000000;
+  -webkit-text-fill-color: #000000;
 }
 
 /* =============== GALERÍA / GRID VIEW =============== */
@@ -190,23 +199,20 @@ body.intro-active .site-footer {
   flex-direction: column;
 }
 
-/* fotos completas sin recorte en selected works */
 .work-card img {
   width: 100%;
   height: auto;
   object-fit: contain;
   display: block;
-  margin-bottom: 0.6rem;
 }
 
-/* títulos de fotos (si se usan) */
 .work-card h2 {
-  font-family: "Fraunces", serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 0.95rem;
+  margin-top: 0.4rem;
 }
 
-/* subtítulos */
 .work-card p {
   font-family: "Fraunces", serif;
   font-weight: 100;
@@ -215,7 +221,7 @@ body.intro-active .site-footer {
   color: #555555;
 }
 
-/* =============== GALERÍA / SINGLE VIEW =============== */
+/* =============== SINGLE VIEW =============== */
 
 .gallery-single {
   display: none;
@@ -233,80 +239,20 @@ body.intro-active .site-footer {
   gap: 1rem;
 }
 
-.single-image-wrapper {
-  width: 100%;
-  max-width: 1000px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
 .single-image-wrapper img {
   width: 100%;
   height: auto;
   max-height: calc(100vh - 220px);
   object-fit: contain;
-  display: block;
 }
 
-.single-caption h2 {
-  font-family: "Fraunces", serif;
-  font-weight: 400;
-  font-size: 0.95rem;
-}
-
-.single-caption p {
-  font-family: "Fraunces", serif;
-  font-weight: 100;
-  font-style: italic;
-  font-size: 0.85rem;
-  color: #555555;
-}
-
-.nav-arrow {
-  border: none;
-  background: transparent;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-/* MOBILE ARROWS */
-@media (max-width: 768px) {
-  .single-view-inner {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-  }
-
-  .single-image-wrapper {
-    grid-column: 1 / 3;
-    grid-row: 1;
-  }
-
-  #singlePrev {
-    grid-column: 1;
-    grid-row: 2;
-    justify-self: flex-end;
-  }
-
-  #singleNext {
-    grid-column: 2;
-    grid-row: 2;
-    justify-self: flex-start;
-  }
-}
-
-/* =============== STORE – CUADRADOS 1:1 =============== */
+/* =============== STORE GRID (1:1) =============== */
 
 .store-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
   margin-top: 1rem;
-}
-
-.store-card {
-  text-decoration: none;
-  color: inherit;
 }
 
 .store-image-wrapper {
@@ -324,10 +270,9 @@ body.intro-active .site-footer {
 }
 
 .store-card-body h2 {
-  font-family: "Fraunces", serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 0.95rem;
-  color: #111111;
 }
 
 .store-card-body p {
@@ -335,7 +280,37 @@ body.intro-active .site-footer {
   font-weight: 100;
   font-style: italic;
   font-size: 0.85rem;
-  color: #555555;
+}
+
+/* =============== ABOUT PAGE (PRINCIPAL) =============== */
+
+.about-page {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.about-photo {
+  width: 100%;
+  object-fit: cover;
+}
+
+.about-col h2 {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.about-col p {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 200;
+  letter-spacing: normal;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  line-height: 1.55;
 }
 
 /* =============== PRODUCT PAGES (about-layout) =============== */
@@ -347,40 +322,30 @@ body.intro-active .site-footer {
   margin-top: 1rem;
 }
 
-.about-image-wrapper img {
-  width: 100%;
-  display: block;
-}
-
-/* título dentro de un producto */
 .about-text h2 {
   font-family: "Fraunces", serif;
   font-weight: 400;
-  font-size: 0.9rem;     /* más chico */
-  letter-spacing: 0;     /* espaciado normal */
+  font-size: 1rem;
   margin-bottom: 0.75rem;
-  font-style: normal;
 }
 
 .about-text p {
   font-family: "DM Sans", sans-serif;
   font-weight: 200;
+  letter-spacing: normal;
   font-size: 0.9rem;
-  color: #333333;
+  color: #333;
   margin-bottom: 0.75rem;
 }
 
-/* “volver al store” */
+/* link volver a la tienda */
 .back-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  margin-top: 1.2rem;
-  font-family: "DM Sans", sans-serif;
-  font-weight: 200;
+  gap: 0.3rem;
+  margin-top: 1.5rem;
   font-size: 0.85rem;
-  color: #555;
-  white-space: nowrap;      /* todo en un mismo renglón */
+  color: #888888;
   text-decoration: none;
 }
 
@@ -389,65 +354,18 @@ body.intro-active .site-footer {
   height: 14px;
 }
 
-/* =============== ABOUT PAGE PRINCIPAL =============== */
-
-.about-page {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 3rem;
-  margin-top: 2rem;
-  align-items: start;
-}
-
-.about-photo {
-  width: 100%;
-  object-fit: cover;
-}
-
-/* título “Julian Delgado” del about */
-.about-col h2 {
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.95rem;
-  margin-bottom: 1.25rem;
-  font-family: "Fraunces", serif;
-  font-weight: 400;
-}
-
-/* párrafo del about: DM Sans 200 */
-.about-col p {
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-  color: #333;
-  max-width: 550px;
-  line-height: 1.55;
-  font-family: "DM Sans", sans-serif;
-  font-weight: 200;
-}
-
 /* =============== FOOTER =============== */
 
 .site-footer {
   border-top: 1px solid #e0e0e0;
   padding: 1.5rem 1rem 2rem;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
 }
 
+.footer-copy,
 .footer-instagram svg {
-  width: 18px;
-  height: 18px;
-  fill: #111111;
-}
-
-/* footer texto → DM Sans 100 */
-.footer-copy {
   font-family: "DM Sans", sans-serif;
-  font-weight: 100;
-  font-size: 0.8rem;
-  color: #777777;
+  font-weight: 200;
 }
 
 /* =============== RESPONSIVE =============== */
