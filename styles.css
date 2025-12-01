@@ -1,4 +1,4 @@
-/* =============== RESET BÁSICO =============== */
+S/* =============== RESET BÁSICO =============== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -278,7 +278,6 @@ body.intro-active .site-footer {
   font-weight: 400;
   font-size: 1.1rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
   margin-bottom: 0.2rem;
 }
 
@@ -443,4 +442,5 @@ body.intro-active .site-footer {
     grid-template-columns: 1fr;
   }
 }
+
 
