@@ -11,7 +11,8 @@ body {
 }
 
 body {
-  font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Roboto", sans-serif;
   background: #ffffff;
   color: #111111;
   line-height: 1.5;
@@ -62,7 +63,7 @@ body {
   color: #ffffff;
 }
 
-/* Oculta el sitio while intro-active */
+/* mientras la intro está activa, ocultamos el resto visualmente */
 body.intro-active .site-header,
 body.intro-active .site-main,
 body.intro-active .site-footer {
@@ -83,7 +84,6 @@ body.intro-active .site-footer {
   z-index: 10;
 }
 
-/* LOGO */
 .logo {
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
@@ -92,19 +92,17 @@ body.intro-active .site-footer {
   font-size: 0.9rem;
 }
 
-/* NAV */
 .main-nav a {
   margin-left: 1rem;
   text-decoration: none;
   text-transform: lowercase;
   font-size: 0.9rem;
-  color: #555555;
-  padding-bottom: 0.2rem;
-  border-bottom: 1px solid transparent;
-
   font-family: "Fraunces", serif;
   font-weight: 100;
   font-style: italic;
+  color: #555555;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid transparent;
 }
 
 .main-nav a:hover {
@@ -135,18 +133,10 @@ body.intro-active .site-footer {
   display: block;
 }
 
-.section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-}
-
 .section-header h1 {
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-
   font-family: "Fraunces", serif;
   font-weight: 400;
 }
@@ -179,10 +169,6 @@ body.intro-active .site-footer {
 
 /* =============== GALERÍA / GRID VIEW =============== */
 
-.gallery {
-  margin-top: 1rem;
-}
-
 .gallery-grid {
   display: none;
 }
@@ -194,31 +180,12 @@ body.intro-active .site-footer {
   align-items: start;
 }
 
-.work-card {
-  display: flex;
-  flex-direction: column;
-}
-
 .work-card img {
   width: 100%;
   height: auto;
   object-fit: contain;
   display: block;
-}
-
-.work-card h2 {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 400;
-  font-size: 0.95rem;
-  margin-top: 0.4rem;
-}
-
-.work-card p {
-  font-family: "Fraunces", serif;
-  font-weight: 100;
-  font-style: italic;
-  font-size: 0.85rem;
-  color: #555555;
+  margin-bottom: 0.6rem;
 }
 
 /* =============== SINGLE VIEW =============== */
@@ -246,7 +213,7 @@ body.intro-active .site-footer {
   object-fit: contain;
 }
 
-/* =============== STORE GRID (1:1) =============== */
+/* =============== STORE – GRILLA 1:1 =============== */
 
 .store-grid {
   display: grid;
@@ -260,7 +227,6 @@ body.intro-active .site-footer {
   aspect-ratio: 1 / 1;
   background: #f2f2f2;
   overflow: hidden;
-  margin-bottom: 0.6rem;
 }
 
 .store-image-wrapper img {
@@ -269,51 +235,7 @@ body.intro-active .site-footer {
   object-fit: cover;
 }
 
-.store-card-body h2 {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 400;
-  font-size: 0.95rem;
-}
-
-.store-card-body p {
-  font-family: "Fraunces", serif;
-  font-weight: 100;
-  font-style: italic;
-  font-size: 0.85rem;
-}
-
-/* =============== ABOUT PAGE (PRINCIPAL) =============== */
-
-.about-page {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 3rem;
-  margin-top: 2rem;
-}
-
-.about-photo {
-  width: 100%;
-  object-fit: cover;
-}
-
-.about-col h2 {
-  font-family: "Fraunces", serif;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  font-size: 1rem;
-  margin-bottom: 1.25rem;
-}
-
-.about-col p {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 200;
-  letter-spacing: normal;
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-  line-height: 1.55;
-}
-
-/* =============== PRODUCT PAGES (about-layout) =============== */
+/* =============== PRODUCT PAGES =============== */
 
 .about-layout {
   display: grid;
@@ -325,20 +247,18 @@ body.intro-active .site-footer {
 .about-text h2 {
   font-family: "Fraunces", serif;
   font-weight: 400;
-  font-size: 1rem;
+  letter-spacing: normal;
   margin-bottom: 0.75rem;
 }
 
 .about-text p {
   font-family: "DM Sans", sans-serif;
   font-weight: 200;
-  letter-spacing: normal;
-  font-size: 0.9rem;
-  color: #333;
+  color: #333333;
   margin-bottom: 0.75rem;
+  line-height: 1.55;
 }
 
-/* link volver a la tienda */
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -354,21 +274,67 @@ body.intro-active .site-footer {
   height: 14px;
 }
 
+/* =============== ABOUT PAGE PRINCIPAL =============== */
+
+.about-page {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+  align-items: start;
+}
+
+.about-col h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+}
+
+.about-col p {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 200;
+  color: #333;
+  max-width: 550px;
+  line-height: 1.55;
+}
+
 /* =============== FOOTER =============== */
 
 .site-footer {
   border-top: 1px solid #e0e0e0;
   padding: 1.5rem 1rem 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-.footer-copy,
+.footer-instagram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .footer-instagram svg {
+  width: 18px;
+  height: 18px;
+  fill: #111111;
+}
+
+.footer-copy {
   font-family: "DM Sans", sans-serif;
   font-weight: 200;
+  font-size: 0.8rem;
+  color: #777777;
 }
 
-/* =============== RESPONSIVE =============== */
+/* =============== RESPONSIVE GLOBAL =============== */
 
 @media (max-width: 900px) {
   .about-page {
@@ -391,6 +357,11 @@ body.intro-active .site-footer {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.75rem;
+  }
+
+  .main-nav a {
+    margin-left: 0;
+    margin-right: 1rem;
   }
 
   .store-grid {
