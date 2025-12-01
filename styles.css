@@ -157,6 +157,7 @@ body.intro-active .site-footer {
   padding: 0.35rem 0.75rem;
   cursor: pointer;
 
+  /* ⭐ FIX: textos negros también en mobile (Safari iOS) */
   color: #000000;
   -webkit-text-fill-color: #000000;
 }
