@@ -263,7 +263,7 @@ body.intro-active .site-footer {
   aspect-ratio: 1 / 1;     /* cuadrados */
   background: #f2f2f2;
   overflow: hidden;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.2rem;
 }
 
 .store-image-wrapper img {
@@ -278,7 +278,7 @@ body.intro-active .site-footer {
   font-weight: 400;
   font-size: 1.1rem;
   text-transform: uppercase;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.05rem;
 }
 
 .store-card-body p {
@@ -442,5 +442,6 @@ body.intro-active .site-footer {
     grid-template-columns: 1fr;
   }
 }
+
 
 
