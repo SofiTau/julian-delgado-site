@@ -273,12 +273,16 @@ body.intro-active .site-footer {
   display: block;
 }
 
+.store-card-body {
+  margin-top: 0.4rem;   /* espacio peque entre imagen y título */
+}
+
 .store-card-body h2 {
   font-family: "Fraunces", serif;
   font-weight: 400;
   font-size: 1.1rem;
   text-transform: uppercase;
-  margin-bottom: 0rem;
+  margin: 0.1rem;
 }
 
 .store-card-body p {
@@ -286,6 +290,7 @@ body.intro-active .site-footer {
   font-weight: 100;
   font-style: italic;
   font-size: 0.9rem;
+  margin: 0.0rem;
   color: #555555;
 }
 
@@ -442,6 +447,7 @@ body.intro-active .site-footer {
     grid-template-columns: 1fr;
   }
 }
+
 
 
 
