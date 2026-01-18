@@ -1,4 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
+  /* ---------- RANDOMIZAR GALERÍA (mantener primera fija) ---------- */
+  const galleryGrid = document.getElementById("galleryGrid");
+  
+  if (galleryGrid) {
+    const workCards = Array.from(galleryGrid.querySelectorAll(".work-card"));
+    
+    if (workCards.length > 1) {
+      // Guardar la primera card
+      const firstCard = workCards[0];
+      
+      // Obtener el resto de las cards
+      const remainingCards = workCards.slice(1);
+      
+      // Shuffle del resto (algoritmo Fisher-Yates)
+      for (let i = remainingCards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [remainingCards[i], remainingCards[j]] = [remainingCards[j], remainingCards[i]];
+      }
+      
+      // Limpiar la galería
+      galleryGrid.innerHTML = '';
+      
+      // Agregar la primera card
+      galleryGrid.appendChild(firstCard);
+      
+      // Agregar el resto shuffleadas
+      remainingCards.forEach(card => galleryGrid.appendChild(card));
+      
+      // Actualizar los data-index
+      const allCards = galleryGrid.querySelectorAll(".work-card");
+      allCards.forEach((card, index) => {
+        const img = card.querySelector("img");
+        if (img) {
+          img.setAttribute("data-index", index);
+        }
+      });
+    }
+  }
+
   /* ---------- REFERENCIAS BÁSICAS ---------- */
   const body = document.body;
   const introOverlay = document.getElementById("introOverlay");
@@ -84,7 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- GALLERY VIEW TOGGLE ---------- */
   const viewButtons = document.querySelectorAll(".view-btn");
-  const galleryGrid = document.getElementById("galleryGrid");
   const gallerySingle = document.getElementById("gallerySingle");
 
   if (viewButtons.length && galleryGrid && gallerySingle) {
