@@ -175,25 +175,24 @@ body.intro-active .site-footer {
   display: none;
 }
 
-/* Grid sencillo en filas, orden natural, fotos completas */
+/* Grid tipo mosaico: 3 columnas, sin huecos, separación uniforme */
 .gallery-grid.view-active {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  align-items: flex-start;
+  display: block;
+  column-count: 3;
+  column-gap: 1.5rem;   /* separación horizontal entre columnas */
 }
 
 .work-card {
-  display: flex;
-  flex-direction: column;
+  break-inside: avoid;         /* evita que una foto se parta entre columnas */
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  margin-bottom: 1.5rem;       /* separación vertical entre fotos */
 }
 
 .work-card img {
   width: 100%;
-  height: auto;       /* respeta aspect ratio */
-  object-fit: contain;
+  height: auto;
   display: block;
-  margin-bottom: 0.6rem;
   cursor: pointer;
 }
 
@@ -436,6 +435,11 @@ body.intro-active .site-footer {
   .about-layout {
     grid-template-columns: 1fr;
   }
+
+  /* galería: 2 columnas en tablet */
+  .gallery-grid.view-active {
+    column-count: 2;
+  }
 }
 
 @media (max-width: 768px) {
@@ -458,5 +462,12 @@ body.intro-active .site-footer {
 
   .store-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  /* galería: 1 columna en mobile */
+  .gallery-grid.view-active {
+    column-count: 1;
   }
 }
