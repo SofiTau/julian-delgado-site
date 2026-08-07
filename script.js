@@ -47,6 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll(".section");
   const hash = window.location.hash.replace("#", "");
 
+  // guarda la posición del scroll de la grid para poder volver al mismo lugar
+  let savedGridScroll = 0;
+
   /* ---------- NAV SECTIONS + HASH INICIAL (#home, #store, #about) ---------- */
   if (sections.length) {
     if (hash) {
@@ -129,12 +132,21 @@ document.addEventListener("DOMContentLoaded", () => {
     viewButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
         const view = btn.dataset.view;
+
+        // si estamos saliendo de la grid, guardar dónde estaba el scroll
+        const leavingGrid = galleryGrid.classList.contains("view-active");
+        if (leavingGrid && view !== "grid") {
+          savedGridScroll = window.scrollY;
+        }
+
         viewButtons.forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
 
         if (view === "grid") {
           galleryGrid.classList.add("view-active");
           gallerySingle.classList.remove("view-active");
+          // volver al lugar donde estabas en la grid
+          window.scrollTo({ top: savedGridScroll });
         } else {
           gallerySingle.classList.add("view-active");
           galleryGrid.classList.remove("view-active");
@@ -168,6 +180,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     img.addEventListener("click", () => {
+      // guardar la posición actual de la grid antes de abrir la foto
+      if (galleryGrid && galleryGrid.classList.contains("view-active")) {
+        savedGridScroll = window.scrollY;
+      }
+
       currentIndex = index;
       updateSingleView();
 
